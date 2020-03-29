@@ -17,9 +17,7 @@ export default class extends React.Component {
           <Redirect to="/" />
         ) : (
           <div className="container profile">
-            <Link className="editIcon" to="/profile/edit">
-              <img src="edit.svg" />
-            </Link>
+            <h1>Mes informations</h1>
             <img
               className="avatar"
               src={
@@ -28,53 +26,67 @@ export default class extends React.Component {
               }
             />
 
-            <h1>{this.props.user.companyName}</h1>
             <div className="info">
-              <p>
-                {this.props.user.clientType.charAt(0).toUpperCase() +
-                  this.props.user.clientType.slice(1)}
-              </p>
-              <p>email : {this.props.user.email}</p>
-              <p>
-                Nom de contact :{" "}
-                {this.props.user.contactName ? (
-                  <span>{this.props.user.contactName}</span>
-                ) : (
-                  " "
-                )}{" "}
-              </p>
-              <p>
-                Téléphone :{" "}
-                {this.props.user.phone ? (
-                  <span>{this.props.user.phone}</span>
-                ) : (
-                  " "
-                )}{" "}
-              </p>
-              <p>
-                Adresse :{" "}
-                {this.props.user.address ? (
-                  <span>{this.props.user.address}</span>
-                ) : (
-                  " "
-                )}{" "}
-              </p>
-              {this.props.user.clientType === "restaurant" ? (
+              <div className="profile-item">
+                <h3>Nom</h3>
+                <p>{this.props.user.companyName}</p>
+              </div>
+              <div className="profile-item">
+                <h3>email</h3>
+                <p>{this.props.user.email}</p>
+              </div>
+              <div className="profile-item">
+                <h3>Contact</h3>
                 <p>
-                  Siret :{" "}
-                  {this.props.user.siret ? (
-                    <span>{this.props.user.address.siret}, </span>
+                  {this.props.user.contactName ? (
+                    <span>{this.props.user.contactName}</span>
                   ) : (
                     " "
-                  )}{" "}
+                  )}
                 </p>
+              </div>
+              <div className="profile-item">
+                <h3>Téléphone</h3>
+                <p>
+                  {this.props.user.phone ? (
+                    <span>{this.props.user.phone}</span>
+                  ) : (
+                    " "
+                  )}
+                </p>
+              </div>
+              <div className="profile-item">
+                <h3>Adresse</h3>
+                <p>
+                  {this.props.user.address ? (
+                    <span>{this.props.user.address}</span>
+                  ) : (
+                    " "
+                  )}
+                </p>
+              </div>
+
+              {this.props.user.clientType === "restaurant" ? (
+                <div className="profile-item">
+                  <h3>Siret</h3>
+                  <p>
+                    {this.props.user.siret ? (
+                      <span>{this.props.user.address.siret}, </span>
+                    ) : (
+                      " "
+                    )}
+                  </p>
+                </div>
               ) : null}
             </div>
-            <div className="cta">
-              <button className="btn logout" onClick={this.logout}>
-                Logout
-              </button>
-            </div>
+
+            <Link
+              className="editIcon"
+              style={{ textDecoration: "none" }}
+              to="/profile/edit"
+            >
+              <button className="btn">Modifier</button>
+            </Link>
           </div>
         )}
       </>

@@ -12,7 +12,7 @@ class KpiBottom extends React.Component {
           </p>
           <p>
             <img src="icon_bullet2.svg" alt="Logo" />
-            {this.props.nbmealsGiven} Personnes bénéficiées
+            {this.props.nbmealsGiven} Personnes bénéficiaires
           </p>
           <p>
             <img src="icon_bullet3.svg" alt="Logo" />

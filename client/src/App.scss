@@ -61,8 +61,14 @@ h1 {
 .form {
   display: flex;
   flex-direction: column;
-  padding: 1em 2em 10vh 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
   align-items: center;
+
+  background-color: white;
+  margin: 0 1.4em;
+  border-radius: 1em;
+  box-shadow: rgba(171, 195, 173, 0.67) 0px 0px 4px 3px;
 
   input {
     height: 30px;
@@ -177,17 +183,67 @@ header.MuiAppBar-colorPrimary {
                                
 */
 
-.profile {
+.container.profile {
+  padding-top: 1em;
+  background-color: white;
+  margin: 0 1.4em;
+  border-radius: 1em;
+  box-shadow: rgba(171, 195, 173, 0.67) 0px 0px 4px 3px;
+
   h1 {
     margin-top: 0;
   }
 
-  .editIcon {
-    align-self: end;
-    width: 2em;
+  a {
+    width: 80%;
+    color: black;
+
+    button.btn {
+      width: 100%;
+      background-color: #f6f7f8;
+      font-size: 1em;
+      margin-top: 1em;
+    }
+  }
+
+  .profile-item {
+    display: flex;
+    flex-direction: column;
+    h3 {
+      margin-top: 1em;
+      margin-bottom: 0;
+    }
+    p {
+      font-size: 1em;
+      padding: 0.2em;
+      border-radius: 3px;
+      border: none;
+      background-color: #f6f6f6;
+      min-height: 30px;
+      text-align: left;
+      margin-top: 0.2em;
+      margin-bottom: 0.2em;
+    }
   }
 }
 
+.label-file {
+  cursor: pointer;
+  text-align: center;
+  color: #6fcf97;
+  font-weight: bold;
+  border: 1px solid #6fcf97;
+  padding: 0.2em;
+  width: 50%;
+}
+.label-file:hover {
+  color: white;
+}
+
+// et on masque le input
+.input-file {
+  display: none;
+}
 /*
   ____                    _   _             _____                    
  |  _ \  ___  _ __   __ _| |_(_) ___  _ __ |  ___|__  _ __ _ __ ___  
@@ -207,6 +263,18 @@ header.MuiAppBar-colorPrimary {
     margin: 0 1.4em;
     border-radius: 1em;
     box-shadow: rgba(171, 195, 173, 0.67) 0px 0px 4px 3px;
+
+    select {
+      -moz-appearance: none;
+      text-indent: 0.01px;
+      text-overflow: "";
+      border-radius: 0.7em;
+      height: 30px;
+      background-color: rgb(246, 246, 246);
+      text-align: center;
+      border: none;
+    }
+
     input {
       border-radius: 0.7em;
       height: 30px;
@@ -251,14 +319,10 @@ header.MuiAppBar-colorPrimary {
         justify-content: space-between;
 
         input {
-          width: 50%;
+          width: 60%;
         }
-
         select {
           width: 30%;
-          font-size: 1em;
-          text-align: right;
-          border: 1px solid black;
         }
       }
 
@@ -294,11 +358,11 @@ header.MuiAppBar-colorPrimary {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
       margin-bottom: 1em;
       padding-left: 0.6em;
       padding-right: 0.6em;
-      input {
+
+      .address {
         width: 100%;
       }
     }
@@ -372,11 +436,6 @@ a.btn {
   p em {
     font-style: normal;
     color: gray;
-  }
-
-  p em + span {
-    display: flex;
-    font-size: 150%;
   }
 
   // [data-route="/profile"],

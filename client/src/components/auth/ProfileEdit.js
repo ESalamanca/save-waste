@@ -109,14 +109,18 @@ export default class extends React.Component {
                     }
                     alt="avatar"
                   />
+                  <label for="file" class="label-file">
+                    Choisir une image
+                  </label>
                   <input
                     id="file"
                     name="imageUrl"
+                    className="input-file"
                     type="file"
                     onChange={event => {
                       this.handleUpload(event);
                     }}
-                  />
+                  ></input>
 
                   <label htmlFor="clientType">Vous êtes?</label>
                   <Field name="clientType" as="select" className="my-select">
@@ -186,7 +190,7 @@ export default class extends React.Component {
                     </>
                   ) : null}
 
-                  <button className="btn">Submit</button>
+                  <button className="btn">Enregistrer</button>
                 </Form>
               );
             }}
