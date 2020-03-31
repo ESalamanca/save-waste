@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import Address from "../auth/Address";
 import UnitDonation from "./UnitDonation";
 import donationServices from "./donationServices";
+import moment from "moment";
 
 class DonationForm extends React.Component {
   render() {
@@ -21,7 +22,7 @@ class DonationForm extends React.Component {
                 value: 0,
                 qtyType: "kg"
               },
-              expirationDate: new Date(Date.now())
+              expirationDate: moment(new Date(Date.now())).format ('DD/MM/YY')
             }
           ],
           location: this.props.user.address || "",

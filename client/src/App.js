@@ -180,7 +180,7 @@ class App extends Component {
             </div>
           )}
         />
-        {this.state.user._id && <MenuBar user={this.state.user} />}
+        {this.state.user._id && <MenuBar user={this.state.user} updateUser={this.updateUser} />}
       </div>
     );
   }

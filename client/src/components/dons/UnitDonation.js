@@ -2,6 +2,7 @@ import React from "react";
 
 import { Field } from "formik";
 
+
 class UnitDonation extends React.Component {
   render() {
     return (
@@ -53,7 +54,7 @@ class UnitDonation extends React.Component {
           <label>Date d'expiration</label>
           <Field
             type="date"
-            name={`donationBox.${this.props.index}.expirationDate`}
+            name= {`donationBox.${this.props.index}.expirationDate`}
           ></Field>
         </div>
       </>

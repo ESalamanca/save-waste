@@ -1,4 +1,5 @@
 import React from "react";
+import moment from 'moment';
 
 class UnitDonCard extends React.Component {
   render() {
@@ -8,6 +9,7 @@ class UnitDonCard extends React.Component {
       viandes: "carrot.svg",
       divers: "carrot.svg"
     };
+    const expiration = moment(this.props.expirationDate).format('DD/MM/YY');
 
     return (
       <div className="cardInfo">
@@ -24,7 +26,8 @@ class UnitDonCard extends React.Component {
             {" " + this.props.quantity.qtyType}
           </div>
           <div>
-            Date de peremption: {this.props.expirationDate.split("T")[0]}
+            Date de peremption: {expiration}
+
           </div>
         </div>
       </div>

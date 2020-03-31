@@ -2,6 +2,7 @@ import React from "react";
 import UnitDonCard from "./UnitDonCard";
 import donationServices from "./donationServices";
 
+
 class CarddonAvailable extends React.Component {
   state = {
     isOpen: false,
@@ -43,7 +44,7 @@ class CarddonAvailable extends React.Component {
       ),
       booked: (
         <button className="btn" onClick={this.pickupDon}>
-          Récupérer
+          Récupéré
         </button>
       ),
       pickedUp: ""

@@ -614,6 +614,10 @@ a.btn {
 
   .cardOpen {
     width: 100%;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
     .unitDonCard {
       width: 100%;
       background-color: grey;
