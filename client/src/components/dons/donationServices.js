@@ -53,5 +53,13 @@ export default {
       console.log("picked", response.data);
       return response.data;
     });
+  },
+
+  deleteDonation(donationID) {
+    return this.service
+      .delete(`/donations/delete/${donationID}`)
+      .then(response => {
+        return response.data;
+      });
   }
 };

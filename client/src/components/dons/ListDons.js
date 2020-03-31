@@ -9,14 +9,10 @@ class ListDons extends React.Component {
   };
 
   fetchDonationsAvailable = () => {
-    if (this.state.donationsAvailable.length === 0) {
-      donationServices
-        .getDonationsAvailable()
-        .then(data => this.setState({ donationsAvailable: data }))
-        .catch(err => this.setState({ donationsAvailable: {} }));
-    } else {
-      console.log("donations already in the state");
-    }
+    donationServices
+      .getDonationsAvailable()
+      .then(data => this.setState({ donationsAvailable: data }))
+      .catch(err => this.setState({ donationsAvailable: {} }));
   };
 
   componentDidMount = () => {
@@ -26,10 +22,14 @@ class ListDons extends React.Component {
   render() {
     return (
       <div className="listDonsAvailable">
+        {this.state.donationsAvailable.length === 0 ? (
+          <div>Il n'y a pas de dons diponibles</div>
+        ) : null}
         {this.state.donationsAvailable.map(don => (
           <CarddonAvailable
             key={don._id}
             user={this.props.user}
+            fetchDonationsAvailable={this.fetchDonationsAvailable}
             history={this.props.history}
             {...don}
           />

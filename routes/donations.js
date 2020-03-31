@@ -159,4 +159,25 @@ router.put("/pick/:id", (req, res, next) => {
   });
 });
 
+//Suppression d'un don
+router.delete("/delete/:id", (req, res, next) => {
+  if (!req.user || !req.user.clientType === "restaurant") {
+    res.status(401).json({
+      message: "Vous devez être un restaurant authentifié pour supprimer un don"
+    });
+    return;
+  }
+  const id = req.params.id;
+  Donation.findOneAndDelete({ _id: id }, function(err, donation) {
+    if (err) console.log(err);
+    if (!donation.giver === req.user._id) {
+      return res.status(401).json({
+        message:
+          "Vous devez être un restaurant authentifié pour supprimer un don"
+      });
+    }
+    console.log("Successful deletion");
+  });
+});
+
 module.exports = router;

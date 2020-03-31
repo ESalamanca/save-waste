@@ -13,6 +13,7 @@ class CarddonBooked extends React.Component {
 
   pickupDon = () => {
     donationServices.pickDonation(this.props._id).then(donation => {
+      this.props.fetchDonationsUser();
       this.props.history.push("/dashboard");
     });
   };

@@ -24,36 +24,29 @@ class Dashboard extends React.Component {
   // state = {
   //   donations: []
   // };
-
-  fetchDonationsRestaurant = () => {
-    if (this.state.donations.length === 0) {
-      donationServices
-        .getDonationsGiver()
-        .then(data => this.setState({ donations: data }))
-        .catch(err => this.setState({ donations: {} }));
-    } else {
-      console.log("donations already in the state");
-    }
-  };
-
-  fetchDonationsAssociation = () => {
-    if (this.state.donations.length === 0) {
-      donationServices
-        .getDonationsAssociation()
-        .then(data => this.setState({ donations: data }))
-        .catch(err => this.setState({ donations: {} }));
-    } else {
-      console.log("donations already in the state");
-    }
-  };
-
-  componentDidMount = () => {
-    console.log("searching donations");
+  fetchDonationsUser = () => {
     if (this.props.user.clientType === "restaurant") {
       this.fetchDonationsRestaurant();
     } else {
       this.fetchDonationsAssociation();
     }
+  };
+  fetchDonationsRestaurant = () => {
+    donationServices
+      .getDonationsGiver()
+      .then(data => this.setState({ donations: data }))
+      .catch(err => this.setState({ donations: {} }));
+  };
+
+  fetchDonationsAssociation = () => {
+    donationServices
+      .getDonationsAssociation()
+      .then(data => this.setState({ donations: data }))
+      .catch(err => this.setState({ donations: {} }));
+  };
+
+  componentDidMount = () => {
+    this.fetchDonationsUser();
   };
 
   render() {
@@ -82,6 +75,7 @@ class Dashboard extends React.Component {
         {this.props.user.clientType === "restaurant"
           ? donsAvailable.map(don => (
               <CarddonAvailable
+                fetchDonationsUser={this.fetchDonationsUser}
                 key={don._id}
                 user={this.props.user}
                 history={this.props.history}
@@ -93,6 +87,7 @@ class Dashboard extends React.Component {
         {donsBooked.map(don => (
           <CarddonBooked
             key={don._id}
+            fetchDonationsUser={this.fetchDonationsUser}
             user={this.props.user}
             history={this.props.history}
             {...don}
