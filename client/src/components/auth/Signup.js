@@ -50,7 +50,7 @@ export default class extends React.Component {
         {({ values, setFieldValue }) => {
           return (
             <Form className="form">
-              <h1>Sign up</h1>
+              <h1>Créez votre compte</h1>
               <label htmlFor="clientType">Vous êtes?</label>
 
               <Field name="clientType" as="select" className="my-select">
@@ -103,10 +103,10 @@ export default class extends React.Component {
                 name="passwordConfirmation"
               />
 
-              <button className="btn">Submit</button>
+              <button className="btn">Créer mon compte</button>
               <p>
-                Si vous avez déjà un compte vous pouvez vous{" "}
-                <Link to="/login">Loger</Link>
+                Vous avez déjà un compte ? {" "}
+                <Link to="/login">Me connecter</Link>
               </p>
             </Form>
           );

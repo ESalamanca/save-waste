@@ -34,9 +34,9 @@ export default class extends React.Component {
     return (
       <form className="form" onSubmit={this.handleSubmit}>
         {this.state.error && <p className="error">{this.state.error}</p>}
-        <h1>Log in</h1>
+        <h1>Je me connecte</h1>
 
-        <label>Mail</label>
+        <label>Email</label>
         <input
           type="email"
           name="email"
@@ -53,10 +53,10 @@ export default class extends React.Component {
         />
 
         <button className="btn" type="submit">
-          Log in
+          Connexion
         </button>
         <p>
-          Vous n'avez pas un compte? <Link to="/signup">S'inscrire</Link>
+          Vous n'avez pas de compte? <Link to="/signup">Créer un compte</Link>
         </p>
       </form>
     );
