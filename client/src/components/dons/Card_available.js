@@ -10,6 +10,13 @@ class CarddonAvailable extends React.Component {
   toggleCard = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
+
+  deleteDon = () => {
+    donationServices.deleteDonation(this.props._id).then(donation => {
+      this.props.fetchDonationsUser();
+      //ici je voudrais refresh la page
+    });
+  };
   // imgProductType = productType => {
   //   let img_product = "altIMG";
   //   if (productType === "légume") {
@@ -20,6 +27,7 @@ class CarddonAvailable extends React.Component {
 
   bookDon = () => {
     donationServices.bookDonation(this.props._id).then(donation => {
+      this.props.fetchDonationsAvailable();
       this.props.history.push("/dashboard");
     });
   };
@@ -76,7 +84,14 @@ class CarddonAvailable extends React.Component {
                 Réserver
               </button>
             ) : (
-              <button className="btn">Modifier</button>
+              <div className="buttonsCardDon">
+                <button className="btn">Modifier</button>
+                <img
+                  src="/delete.svg"
+                  onClick={() => this.deleteDon()}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
             )}
 
             {/*Renvoi au formulaire de don */}

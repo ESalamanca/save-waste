@@ -4,12 +4,6 @@ import authService from "./auth-service.js";
 import { Link, Redirect } from "react-router-dom";
 
 export default class extends React.Component {
-  logout = event => {
-    authService.logout().then(response => {
-      this.props.updateUser(false);
-    });
-  };
-
   render() {
     return (
       <>
