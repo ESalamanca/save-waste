@@ -32,6 +32,12 @@ export default class extends React.Component {
                 <p>{this.props.user.companyName}</p>
               </div>
               <div className="profile-item">
+                <h3>
+                  {this.props.user.clientType.slice(0, 1).toUpperCase() +
+                    this.props.user.clientType.slice(1)}
+                </h3>
+              </div>
+              <div className="profile-item">
                 <h3>email</h3>
                 <p>{this.props.user.email}</p>
               </div>

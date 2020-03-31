@@ -24,42 +24,22 @@ class CarddonAvailable extends React.Component {
     });
   };
 
-  pickupDon = () => {
-    //TODO : faire tout pour récupérer le don
-  };
   render() {
     const cardHeading = {
-      pending: "Panier Disponible",
-      booked: "Panier Réservé",
-      pickedUp: "Panier Récupéré"
-    };
-
-    //Le bouton pour les associations
-    const cardButton = {
-      pending: (
-        <button className="btn" onClick={this.bookDon}>
-          Réserver
-        </button>
-      ),
-      booked: (
-        <button className="btn" onClick={this.pickupDon}>
-          Récupérer
-        </button>
-      ),
-      pickedUp: ""
+      pending: "Panier Disponible"
     };
 
     return (
       <div className="card_dons">
         {!this.state.isOpen && (
           <div className="cardClosed">
-            <img src="./Gift-Box.png" alt="Logo panier" />
+            <img src="/Gift-Box.png" alt="Logo panier" />
             <p>{cardHeading[this.state.statusDon]}</p>
 
             <div className="toggleButton">
               <img
                 onClick={this.toggleCard}
-                src="./icon_fleche_closed.svg"
+                src="/icon_fleche_closed.svg"
                 alt="Logo chevron closed"
                 style={{ cursor: "pointer" }}
               />
@@ -69,12 +49,12 @@ class CarddonAvailable extends React.Component {
         {this.state.isOpen && (
           <div className="cardOpen">
             <div className="btn-open">
-              <img src="./Gift-Box.png" alt="Logo panier" />
+              <img src="/Gift-Box.png" alt="Logo panier" />
               <p>{cardHeading[this.state.statusDon]}</p>
               <div className="toggleButton">
                 <img
                   onClick={this.toggleCard}
-                  src="./icon_fleche_open.svg"
+                  src="/icon_fleche_open.svg"
                   alt="Logo chevron open "
                 />
                 {this.state.isOpen}
@@ -92,7 +72,9 @@ class CarddonAvailable extends React.Component {
                 )
             )}
             {this.props.user.clientType === "association" ? (
-              cardButton[this.state.statusDon]
+              <button className="btn" onClick={this.bookDon}>
+                Réserver
+              </button>
             ) : (
               <button className="btn">Modifier</button>
             )}

@@ -5,7 +5,7 @@ import KpiBottom from "./KpiBottom.js";
 import MenuBar from "../navigation/MenuBar.js";
 import CarddonBooked from "../dons/Card_booked.js";
 import CarddonAvailable from "../dons/Card_available.js";
-
+import CarddonPicked from "../dons/Card_picked.js";
 import donationServices from "../dons/donationServices";
 
 //import { Link } from "react-router-dom";
@@ -62,8 +62,11 @@ class Dashboard extends React.Component {
     const donsDone = this.state.donations.filter(
       don => don.status === "pickedUp"
     );
-    const donsOnGoing = this.state.donations.filter(
-      don => don.status !== "pickedUp"
+    const donsBooked = this.state.donations.filter(
+      don => don.status === "booked"
+    );
+    const donsAvailable = this.state.donations.filter(
+      don => don.status === "pending"
     );
     const amount = 7 * donsDone.length;
     const nbmealsGiven = donsDone.length * 5;
@@ -71,14 +74,30 @@ class Dashboard extends React.Component {
 
     return (
       <div className="dashboard">
-        <KpiTop amount={amount} donsOnGoing={donsOnGoing} />
+        <KpiTop amount={amount} donsOnGoing={donsDone} />
 
-        {donsDone.map(don => (
-          <CarddonBooked key={don._id} user={this.props.user} {...don} />
+        {this.props.user.clientType === "restaurant"
+          ? donsAvailable.map(don => (
+              <CarddonAvailable
+                key={don._id}
+                user={this.props.user}
+                history={this.props.history}
+                {...don}
+              />
+            ))
+          : null}
+
+        {donsBooked.map(don => (
+          <CarddonBooked
+            key={don._id}
+            user={this.props.user}
+            history={this.props.history}
+            {...don}
+          />
         ))}
 
-        {donsOnGoing.map(don => (
-          <CarddonAvailable key={don._id} user={this.props.user} {...don} />
+        {donsDone.map(don => (
+          <CarddonPicked key={don._id} user={this.props.user} {...don} />
         ))}
 
         <KpiBottom

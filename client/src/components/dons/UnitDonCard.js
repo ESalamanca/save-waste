@@ -3,10 +3,10 @@ import React from "react";
 class UnitDonCard extends React.Component {
   render() {
     const foodTypes = {
-      fruits: "carrot.svg",
-      Légumes: "carrot.svg",
-      viandes: "carrot.svg",
-      divers: "carrot.svg"
+      fruits: "/carrot.svg",
+      Légumes: "/carrot.svg",
+      viandes: "/carrot.svg",
+      divers: "/carrot.svg"
     };
 
     return (

@@ -1,4 +1,5 @@
 import React from "react";
+import UnitDonCard from "./UnitDonCard";
 
 class CarddonPicked extends React.Component {
   state = {
@@ -7,57 +8,63 @@ class CarddonPicked extends React.Component {
   toggleCard = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
+
   render() {
     return (
       <div className="card_dons">
         {!this.state.isOpen && (
           <div className="cardClosed">
+            <img src="/Gift-Box.png" alt="Logo panier" />
             <p>
-              <img src="" alt="Logo panier" />
-              Panier reservé par <img src="" alt="Logo asso" />
+              Panier Récupéré{" "}
+              {this.props.user.clientType === "restaurant"
+                ? `par ${this.props.taker.companyName}`
+                : ""}
             </p>
-            <button onClick={this.toggleCard}>
-              <img src="" alt="Logo chevron closed" />
-              Open
-            </button>
+
+            <div className="toggleButton">
+              <img
+                onClick={this.toggleCard}
+                src="/icon_fleche_closed.svg"
+                alt="Logo chevron closed"
+                style={{ cursor: "pointer" }}
+              />
+            </div>
           </div>
         )}
         {this.state.isOpen && (
           <div className="cardOpen">
-            <div>
+            <div className="btn-open">
+              <img src="/Gift-Box.png" alt="Logo panier" />
               <p>
-                <img src="" alt="Logo panier" />
-                Panier récupéré par <img src="" alt="Logo asso" />
+                Panier Récupéré{" "}
+                {this.props.user.clientType === "restaurant"
+                  ? `par ${this.props.taker.companyName}`
+                  : ""}
               </p>
-              <button onClick={this.toggleCard}>
-                <img src="" alt="Logo chevron open " />
-                {this.state.isOpen}Close
-              </button>
+              <div className="toggleButton">
+                <img
+                  onClick={this.toggleCard}
+                  src="/icon_fleche_open.svg"
+                  alt="Logo chevron open "
+                />
+                {this.state.isOpen}
+              </div>
             </div>
-            <div>
-              <p>
-                Product type name
-                <img src="" alt="Logo productType" />
-              </p>
-              <p>Poids</p>
-              <p>{/*poids*/}</p>
-              <p>Date de peremption</p>
-              <p>{/*{date jours et mois}*/}</p>
-            </div>
-            <p>
-              <img src="" alt="Logo calendrier" />
-              Récupéré le <img src="" alt="Logo asso" />
-            </p>
-            <p>
-              <img src="" alt="Logo geoloc" />
-              {/*Adresse*/}
-            </p>
-            <p>
-              <img src="" alt="Logo money" />
-              {this.props.amount}
-            </p>
 
-            <button className="certificat">Télécharger le certificat</button>
+            {this.props.donationBox.map(
+              unitDon =>
+                this.props.user && (
+                  <UnitDonCard
+                    key={unitDon._id}
+                    user={this.props.user}
+                    {...unitDon}
+                  />
+                )
+            )}
+            <p>Récupération à {this.props.location}</p>
+
+            {/*Renvoi au formulaire de don */}
           </div>
         )}
       </div>

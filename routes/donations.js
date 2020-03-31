@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const Donation = require("../models/Donation");
+const User = require("../models/User");
 
 router.post("/new-donation", (req, res, next) => {
   if (!req.user || !req.user.clientType === "restaurant") {
@@ -58,6 +59,7 @@ router.get("/giver", (req, res, next) => {
   }
 
   Donation.find({ giver: req.user._id })
+    .populate("taker giver")
     .then(listDonations => {
       res.status(201).json(listDonations);
     })
@@ -79,6 +81,7 @@ router.get("/taker", (req, res, next) => {
   }
 
   Donation.find({ taker: req.user._id })
+    .populate("giver taker")
     .then(listDonations => {
       res.status(201).json(listDonations);
     })
@@ -100,6 +103,7 @@ router.get("/available", (req, res, next) => {
   }
 
   Donation.find({ status: "pending" })
+    .populate("giver")
     .then(listDonations => {
       res.status(201).json(listDonations);
     })
@@ -131,6 +135,28 @@ router.put("/book/:id", (req, res, next) => {
       res.status(201).json(donation);
     }
   );
+});
+
+//Récupération du don par une association
+router.put("/pick/:id", (req, res, next) => {
+  if (!req.user || !req.user.clientType === "association") {
+    res.status(401).json({
+      message:
+        "Vous devez être une association authentifiée pour récupérer un don"
+    });
+    return;
+  }
+  const id = req.params.id;
+  Donation.findByIdAndUpdate(id, { status: "pickedUp" }, function(
+    err,
+    donation
+  ) {
+    if (err)
+      return res
+        .status(500)
+        .json({ message: "Something went wrong during donations request" });
+    res.status(201).json(donation);
+  });
 });
 
 module.exports = router;
