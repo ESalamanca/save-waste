@@ -74,7 +74,10 @@ class Dashboard extends React.Component {
 
     return (
       <div className="dashboard">
-        <KpiTop amount={amount} donsOnGoing={donsDone} />
+        <KpiTop
+          amount={amount}
+          nbDonsOnGoing={donsBooked.length + donsAvailable.length}
+        />
 
         {this.props.user.clientType === "restaurant"
           ? donsAvailable.map(don => (
@@ -96,9 +99,9 @@ class Dashboard extends React.Component {
           />
         ))}
 
-        {donsDone.map(don => (
+        {/* {donsDone.map(don => (
           <CarddonPicked key={don._id} user={this.props.user} {...don} />
-        ))}
+        ))} */}
 
         <KpiBottom
           donsDone={donsDone}
