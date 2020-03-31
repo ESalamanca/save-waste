@@ -11,7 +11,10 @@ export default {
   login(email, password) {
     return this.service
       .post("/sessions", { email, password })
-      .then(response => response.data);
+      .then(response => {
+        console.log(response.data);
+        return response.data;
+      });
   },
 
   signup(email, password, companyName, clientType) {

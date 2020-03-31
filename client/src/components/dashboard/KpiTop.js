@@ -8,8 +8,8 @@ class KpiTop extends React.Component {
           <p>{this.props.amount}€</p>
         </div>
         <div className="Kpi2">
-          <img src="./Gift-Box.png" alt="Logo" />
-          <p>{this.props.donsOnGoing.length} Dons en cours</p>
+          <img src="/Gift-Box.png" alt="Logo" />
+          <p>{this.props.nbDonsOnGoing} Dons en cours</p>
         </div>
       </div>
     );

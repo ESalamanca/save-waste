@@ -656,4 +656,10 @@ a.btn {
     margin-bottom: 0.5em;
     padding: 0.6em 2em;
   }
+
+  .buttonsCardDon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

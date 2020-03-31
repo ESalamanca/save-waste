@@ -11,6 +11,13 @@ class CarddonAvailable extends React.Component {
   toggleCard = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
+
+  deleteDon = () => {
+    donationServices.deleteDonation(this.props._id).then(donation => {
+      this.props.fetchDonationsUser();
+      //ici je voudrais refresh la page
+    });
+  };
   // imgProductType = productType => {
   //   let img_product = "altIMG";
   //   if (productType === "légume") {
@@ -21,13 +28,11 @@ class CarddonAvailable extends React.Component {
 
   bookDon = () => {
     donationServices.bookDonation(this.props._id).then(donation => {
+      this.props.fetchDonationsAvailable();
       this.props.history.push("/dashboard");
     });
   };
 
-  pickupDon = () => {
-    //TODO : faire tout pour récupérer le don
-  };
   render() {
     const cardHeading = {
       pending: "Panier Disponible",
@@ -36,7 +41,7 @@ class CarddonAvailable extends React.Component {
     };
 
     //Le bouton pour les associations
-    const cardButton = {
+    /*const cardButton = {
       pending: (
         <button className="btn" onClick={this.bookDon}>
           Réserver
@@ -48,19 +53,20 @@ class CarddonAvailable extends React.Component {
         </button>
       ),
       pickedUp: ""
-    };
+      pending: "Panier Disponible"
+    };*/
 
     return (
       <div className="card_dons">
         {!this.state.isOpen && (
           <div className="cardClosed">
-            <img src="./Gift-Box.png" alt="Logo panier" />
+            <img src="/Gift-Box.png" alt="Logo panier" />
             <p>{cardHeading[this.state.statusDon]}</p>
 
             <div className="toggleButton">
               <img
                 onClick={this.toggleCard}
-                src="./icon_fleche_closed.svg"
+                src="/icon_fleche_closed.svg"
                 alt="Logo chevron closed"
                 style={{ cursor: "pointer" }}
               />
@@ -70,12 +76,12 @@ class CarddonAvailable extends React.Component {
         {this.state.isOpen && (
           <div className="cardOpen">
             <div className="btn-open">
-              <img src="./Gift-Box.png" alt="Logo panier" />
+              <img src="/Gift-Box.png" alt="Logo panier" />
               <p>{cardHeading[this.state.statusDon]}</p>
               <div className="toggleButton">
                 <img
                   onClick={this.toggleCard}
-                  src="./icon_fleche_open.svg"
+                  src="/icon_fleche_open.svg"
                   alt="Logo chevron open "
                 />
                 {this.state.isOpen}
@@ -93,9 +99,19 @@ class CarddonAvailable extends React.Component {
                 )
             )}
             {this.props.user.clientType === "association" ? (
-              cardButton[this.state.statusDon]
+              <button className="btn" onClick={this.bookDon}>
+                Réserver
+              </button>
             ) : (
-              <button className="btn">Modifier</button>
+              <div className="buttonsCardDon">
+                <button className="btn">Modifier</button>
+                <img
+                  src="/delete.svg"
+                  alt ="delete"
+                  onClick={() => this.deleteDon()}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
             )}
 
             {/*Renvoi au formulaire de don */}

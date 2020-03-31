@@ -4,10 +4,10 @@ import moment from 'moment';
 class UnitDonCard extends React.Component {
   render() {
     const foodTypes = {
-      fruits: "carrot.svg",
-      Légumes: "carrot.svg",
-      viandes: "carrot.svg",
-      divers: "carrot.svg"
+      fruits: "/carrot.svg",
+      Légumes: "/carrot.svg",
+      viandes: "/carrot.svg",
+      divers: "/carrot.svg"
     };
     const expiration = moment(this.props.expirationDate).format('DD/MM/YY');
 

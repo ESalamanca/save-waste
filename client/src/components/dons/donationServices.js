@@ -42,10 +42,24 @@ export default {
   },
 
   bookDonation(donationID) {
-    console.log("function bookDonation called");
     return this.service.put(`/donations/book/${donationID}`).then(response => {
-      console.log("booked", response.data);
       return response.data;
     });
+  },
+
+  pickDonation(donationID) {
+    console.log("function pickDonation called");
+    return this.service.put(`/donations/pick/${donationID}`).then(response => {
+      console.log("picked", response.data);
+      return response.data;
+    });
+  },
+
+  deleteDonation(donationID) {
+    return this.service
+      .delete(`/donations/delete/${donationID}`)
+      .then(response => {
+        return response.data;
+      });
   }
 };

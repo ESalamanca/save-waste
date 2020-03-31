@@ -4,12 +4,6 @@ import authService from "./auth-service.js";
 import { Link, Redirect } from "react-router-dom";
 
 export default class extends React.Component {
-  logout = event => {
-    authService.logout().then(response => {
-      this.props.updateUser(false);
-    });
-  };
-
   render() {
     return (
       <>
@@ -30,6 +24,12 @@ export default class extends React.Component {
               <div className="profile-item">
                 <h3>Nom</h3>
                 <p>{this.props.user.companyName}</p>
+              </div>
+              <div className="profile-item">
+                <h3>
+                  {this.props.user.clientType.slice(0, 1).toUpperCase() +
+                    this.props.user.clientType.slice(1)}
+                </h3>
               </div>
               <div className="profile-item">
                 <h3>email</h3>

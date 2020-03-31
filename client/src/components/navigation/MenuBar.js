@@ -90,8 +90,8 @@ function MenuBar(props) {
               <div className="iconMenu">
                 <button onClick={handleLogout}to="/logout" className={classes.buttons}>
                   <img src="icon_menu.svg" alt="to menu" />{" "}
-
                 </button>
+             
               </div>
             </div>
           </Toolbar>
