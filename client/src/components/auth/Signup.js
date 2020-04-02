@@ -105,8 +105,7 @@ export default class extends React.Component {
 
               <button className="btn">Créer mon compte</button>
               <p>
-                Vous avez déjà un compte ? {" "}
-                <Link to="/login">Me connecter</Link>
+                Vous avez déjà un compte ? <Link to="/login">Me connecter</Link>
               </p>
             </Form>
           );

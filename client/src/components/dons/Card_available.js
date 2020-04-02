@@ -1,7 +1,7 @@
 import React from "react";
 import UnitDonCard from "./UnitDonCard";
 import donationServices from "./donationServices";
-import moment from 'moment';
+import moment from "moment";
 
 class CarddonAvailable extends React.Component {
   state = {
@@ -39,7 +39,7 @@ class CarddonAvailable extends React.Component {
       booked: "Panier Réservé",
       pickedUp: "Panier Récupéré"
     };
-    const dateRecuperation = moment (this.props.pickDate).format('DD/MM/YY'); 
+    const dateRecuperation = moment(this.props.pickDate).format("DD/MM/YY");
     //Le bouton pour les associations
     /*const cardButton = {
       pending: (
@@ -111,7 +111,7 @@ class CarddonAvailable extends React.Component {
                 <button className="btn">Modifier</button>
                 <img
                   src="/delete.svg"
-                  alt ="delete"
+                  alt="delete"
                   onClick={() => this.deleteDon()}
                   style={{ cursor: "pointer" }}
                 />

@@ -7,9 +7,15 @@ import Address from "../auth/Address";
 import UnitDonation from "./UnitDonation";
 import donationServices from "./donationServices";
 
-class DonationForm extends React.Component {
+class DonationEdit extends React.Component {
+  state = {
+    donation: {}
+  };
+
+  componentDidMount = () => {
+    const { donationID } = this.props.match.params;
+  };
   render() {
-    console.log("props", this.props);
     return (
       <Formik
         initialValues={{
@@ -122,4 +128,4 @@ class DonationForm extends React.Component {
   }
 }
 
-export default DonationForm;
+export default DonationEdit;

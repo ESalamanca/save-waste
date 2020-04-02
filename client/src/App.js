@@ -12,6 +12,7 @@ import Address from "./components/auth/Address.js";
 import Navbar from "./components/navigation/Navbar";
 import MenuBar from "./components/navigation/MenuBar";
 import DonationForm from "./components/dons/DonationForm";
+import DonationEdit from "./components/dons/DonationEdit";
 import ListDons from "./components/dons/ListDons.js";
 import authService from "./components/auth/auth-service.js";
 import Dashboard from "./components/dashboard/Dashboard.js";
@@ -60,9 +61,14 @@ class App extends Component {
         />
         <Route
           render={props => (
+        
             <div className="App" data-route={props.location.pathname}>
               {" "}
               {/* data-route="/" allow us to style pages */}
+              <div className="background-green">
+              </div>
+              <div className="background-grey">
+              </div>
               <Switch>
                 <Route
                   exact
@@ -98,8 +104,10 @@ class App extends Component {
                   render={props => (
                     <Profile
                       user={this.state.user}
+                      {...props}
                       updateUser={this.updateUser}
                       history={props.history}
+                      getCurrentPageName={this.getCurrentPageName}
                     />
                   )}
                 />
@@ -110,7 +118,6 @@ class App extends Component {
                     <ProfileEdit
                       user={this.state.user}
                       updateUser={this.updateUser}
-                      {...props}
                     />
                   )}
                 />
@@ -122,11 +129,21 @@ class App extends Component {
                       return (
                         (this.state.user.address === "" ||
                           this.state.user.address) && (
-                          <DonationForm user={this.state.user} {...props} />
+                          <DonationForm user={this.state.user} {...props} getCurrentPageName={this.getCurrentPageName} />
                         )
                       );
                     } else {
                       return <ListDons user={this.state.user} {...props} />;
+                    }
+                  }}
+                />
+
+                <Route
+                  exact
+                  path="/edit/:donationID"
+                  render={props => {
+                    if (this.state.user.clientType === "restaurant") {
+                      return <DonationEdit user={this.state.user} {...props} />;
                     }
                   }}
                 />
@@ -160,7 +177,7 @@ class App extends Component {
                   path="/dashboard"
                   render={props =>
                     this.state.user._id && (
-                      <Dashboard user={this.state.user} {...props} />
+                      <Dashboard user={this.state.user} {...props} getCurrentPageName={this.getCurrentPageName} />
                     )
                   }
                 />
@@ -169,7 +186,7 @@ class App extends Component {
                   path="/historic"
                   render={props =>
                     this.state.user._id && (
-                      <Historic user={this.state.user} {...props} />
+                      <Historic user={this.state.user} {...props} getCurrentPageName={this.getCurrentPageName} />
                     )
                   }
                 />
@@ -180,7 +197,9 @@ class App extends Component {
             </div>
           )}
         />
-        {this.state.user._id && <MenuBar user={this.state.user} updateUser={this.updateUser} />}
+        {this.state.user._id && (
+          <MenuBar user={this.state.user} updateUser={this.updateUser} />
+        )}
       </div>
     );
   }
