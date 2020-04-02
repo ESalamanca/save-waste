@@ -21,7 +21,7 @@ class CarddonPicked extends React.Component {
             <p>
               Panier Récupéré{" "}
               {this.props.user.clientType === "restaurant"
-                ? `par ${this.props.taker.companyName}`
+                ? `par ${this.props.taker ? this.props.taker.companyName : ""}`
                 : ""}
             </p>
 
@@ -42,7 +42,9 @@ class CarddonPicked extends React.Component {
               <p>
                 Panier Récupéré{" "}
                 {this.props.user.clientType === "restaurant"
-                  ? `par ${this.props.taker.companyName}`
+                  ? `par ${
+                      this.props.taker ? this.props.taker.companyName : ""
+                    }`
                   : ""}
               </p>
               <div className="toggleButton">
