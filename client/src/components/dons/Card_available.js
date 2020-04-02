@@ -1,7 +1,7 @@
 import React from "react";
 import UnitDonCard from "./UnitDonCard";
 import donationServices from "./donationServices";
-
+import moment from 'moment';
 
 class CarddonAvailable extends React.Component {
   state = {
@@ -39,7 +39,7 @@ class CarddonAvailable extends React.Component {
       booked: "Panier Réservé",
       pickedUp: "Panier Récupéré"
     };
-
+    const dateRecuperation = moment (this.props.pickDate).format('DD/MM/YY'); 
     //Le bouton pour les associations
     /*const cardButton = {
       pending: (
@@ -98,6 +98,10 @@ class CarddonAvailable extends React.Component {
                   />
                 )
             )}
+            <div>
+            A récupérer avant le : {dateRecuperation}
+            {this.props.location}
+            </div>
             {this.props.user.clientType === "association" ? (
               <button className="btn" onClick={this.bookDon}>
                 Réserver
