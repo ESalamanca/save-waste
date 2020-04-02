@@ -12,6 +12,7 @@ import Address from "./components/auth/Address.js";
 import Navbar from "./components/navigation/Navbar";
 import MenuBar from "./components/navigation/MenuBar";
 import DonationForm from "./components/dons/DonationForm";
+import DonationEdit from "./components/dons/DonationEdit";
 import ListDons from "./components/dons/ListDons.js";
 import authService from "./components/auth/auth-service.js";
 import Dashboard from "./components/dashboard/Dashboard.js";
@@ -131,13 +132,15 @@ class App extends Component {
                   }}
                 />
 
-                <Route exact path='/edit/:donationID' render ={props =>{
-                  if (this.state.user.clientType === "restaurant") {
-                    return (
-                        <DonationEdit user={this.state.user} {...props} />
-                      )
-                    );
-                }}}/>
+                <Route
+                  exact
+                  path="/edit/:donationID"
+                  render={props => {
+                    if (this.state.user.clientType === "restaurant") {
+                      return <DonationEdit user={this.state.user} {...props} />;
+                    }
+                  }}
+                />
 
                 <Route
                   exact
@@ -188,7 +191,9 @@ class App extends Component {
             </div>
           )}
         />
-        {this.state.user._id && <MenuBar user={this.state.user} updateUser={this.updateUser} />}
+        {this.state.user._id && (
+          <MenuBar user={this.state.user} updateUser={this.updateUser} />
+        )}
       </div>
     );
   }
