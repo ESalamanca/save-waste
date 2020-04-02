@@ -649,11 +649,14 @@ a.btn {
     .cardInfo {
       margin-top: 20px;
       text-justify: center;
-      .productType {
+
+      .productType, .productName, .productWeight, .productexpDate {
         display: flex;
         align-items: center;
         margin-left: auto;
+        justify-content: space-between;
       }
+      
     }
 
     img {
