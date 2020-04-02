@@ -27,7 +27,8 @@ class DonationEdit extends React.Component {
                 value: 0,
                 qtyType: "kg"
               },
-              expirationDate: new Date(Date.now())
+              expirationDate: new Date(Date.now()),
+              pickDate:(new Date(Date.now()))
             }
           ],
           location: this.props.user.address || "",
@@ -70,7 +71,8 @@ class DonationEdit extends React.Component {
                   value: 0,
                   qtyType: "kg"
                 },
-                expirationDate: Date.now()
+                expirationDate: Date.now(),
+                pickDate: Date.now()
               }
             ]);
 

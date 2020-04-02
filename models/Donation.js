@@ -16,7 +16,8 @@ const unityDonationSchema = new Schema({
       default: "kg"
     }
   },
-  expirationDate: Date
+  expirationDate: Date,
+  
 });
 
 const donationSchema = new Schema(
@@ -31,6 +32,7 @@ const donationSchema = new Schema(
       default: "pending"
     },
     taker: { type: Schema.Types.ObjectId, ref: "User" },
+    pickDate: Date,
     location: "",
     GeoLoc: {
       lat: Number,
