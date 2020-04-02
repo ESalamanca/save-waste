@@ -1,5 +1,5 @@
 import React from "react";
-import authService from './../auth/auth-service';
+import authService from "./../auth/auth-service";
 
 import { Link } from "react-router-dom";
 
@@ -47,10 +47,11 @@ function MenuBar(props) {
   console.log("this is url ", url);
 
   const handleLogout = () => {
-    authService.logout()
+    authService
+      .logout()
       .then(props.updateUser)
-      .catch(console.error)
-  }
+      .catch(console.error);
+  };
 
   return (
     <React.Fragment>
@@ -88,10 +89,13 @@ function MenuBar(props) {
               {/* TODO ajouter un menu ouvrant qui permet d'accéder à la deconnexion mais à d'autres 
               éléments aussi... pour l'instant on deco directement avec une icone pas très parlante */}
               <div className="iconMenu">
-                <button onClick={handleLogout}to="/logout" className={classes.buttons}>
+                <button
+                  onClick={handleLogout}
+                  to="/"
+                  className={classes.buttons}
+                >
                   <img src="icon_menu.svg" alt="to menu" />{" "}
                 </button>
-             
               </div>
             </div>
           </Toolbar>

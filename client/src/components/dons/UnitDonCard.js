@@ -10,6 +10,7 @@ class UnitDonCard extends React.Component {
       divers: "/carrot.svg"
     };
     const expiration = moment(this.props.expirationDate).format('DD/MM/YY');
+    
 
     return (
       <div className="cardInfo">
@@ -27,7 +28,6 @@ class UnitDonCard extends React.Component {
           </div>
           <div>
             Date de peremption: {expiration}
-
           </div>
         </div>
       </div>

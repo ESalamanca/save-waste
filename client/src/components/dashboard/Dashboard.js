@@ -2,7 +2,6 @@ import React from "react";
 
 import KpiTop from "./KpiTop.js";
 import KpiBottom from "./KpiBottom.js";
-import MenuBar from "../navigation/MenuBar.js";
 import CarddonBooked from "../dons/Card_booked.js";
 import CarddonAvailable from "../dons/Card_available.js";
 import CarddonPicked from "../dons/Card_picked.js";

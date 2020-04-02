@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 import Address from "../auth/Address";
@@ -28,9 +28,11 @@ class DonationForm extends React.Component {
                 value: 0,
                 qtyType: "kg"
               },
-              expirationDate: moment(new Date(Date.now())).format ('DD/MM/YY')
+              expirationDate: moment(new Date(Date.now())).format ('DD/MM/YY'),
+              
             }
           ],
+          pickDate: moment(new Date(Date.now())).format ('DD/MM/YY'),
           location: this.props.user.address || "",
           GeoLoc: this.props.user.GeoLoc || {}
         }}
@@ -50,10 +52,10 @@ class DonationForm extends React.Component {
         //   )
         // })}
         onSubmit={(values, { setSubmitting }) => {
-          const { donationBox, location, GeoLoc } = values;
+          const { donationBox, pickDate, location, GeoLoc } = values;
           console.log("values", values);
           donationServices
-            .createDonation(donationBox, location, GeoLoc)
+            .createDonation(donationBox, pickDate, location, GeoLoc)
             .then(response => {
               this.props.history.push(`/dashboard`);
             })
@@ -71,7 +73,8 @@ class DonationForm extends React.Component {
                   value: 0,
                   qtyType: "kg"
                 },
-                expirationDate: Date.now()
+                expirationDate: Date.now(),
+               
               }
             ]);
 
@@ -93,7 +96,7 @@ class DonationForm extends React.Component {
                 <h2>Qu'est-ce que vous souhaitez donner? </h2>
                 {values.donationBox.map((donation, index) => {
                   return (
-                    <div className="unitDon">
+                    <div className="unitDon" key={index}>
                       <UnitDonation
                         key={index}
                         deleteUnitDon={deleteUnitDon}
@@ -103,7 +106,13 @@ class DonationForm extends React.Component {
                     </div>
                   );
                 })}
-
+                 <div className="date">
+                  <label>A récuperer avant le:</label>
+                    <Field
+                      type="date"
+                      name= 'pickDate'
+                    ></Field>
+                  </div>
                 <div className="localisation">
                   <label htmlFor="location">Localisation du don</label>
                   <Address

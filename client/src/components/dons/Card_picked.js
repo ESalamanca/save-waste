@@ -1,5 +1,6 @@
 import React from "react";
 import UnitDonCard from "./UnitDonCard";
+import moment from "moment";
 
 class CarddonPicked extends React.Component {
   state = {
@@ -10,6 +11,8 @@ class CarddonPicked extends React.Component {
   };
 
   render() {
+    const dateRecup = moment(this.props.updated_at).format("DD/MM/YY");
+
     return (
       <div className="card_dons">
         {!this.state.isOpen && (
@@ -18,7 +21,7 @@ class CarddonPicked extends React.Component {
             <p>
               Panier Récupéré{" "}
               {this.props.user.clientType === "restaurant"
-                ? `par ${this.props.taker.companyName}`
+                ? `par ${this.props.taker ? this.props.taker.companyName : ""}`
                 : ""}
             </p>
 
@@ -39,7 +42,9 @@ class CarddonPicked extends React.Component {
               <p>
                 Panier Récupéré{" "}
                 {this.props.user.clientType === "restaurant"
-                  ? `par ${this.props.taker.companyName}`
+                  ? `par ${
+                      this.props.taker ? this.props.taker.companyName : ""
+                    }`
                   : ""}
               </p>
               <div className="toggleButton">
@@ -63,6 +68,7 @@ class CarddonPicked extends React.Component {
                 )
             )}
             <p>Récupération à {this.props.location}</p>
+            <p>le {dateRecup}</p>
 
             {/*Renvoi au formulaire de don */}
           </div>
