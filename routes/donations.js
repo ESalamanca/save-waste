@@ -48,6 +48,18 @@ router.post("/new-donation", (req, res, next) => {
     });
 });
 
+//Récupération d'un don par son ID
+
+router.get("/donation/:id", (req, res, next) => {
+  if (!req.user) {
+    res.status(401).json({
+      message:
+        "Vous devez être un utilisateur authentifié pour rechercher un don"
+    });
+    return;
+  }
+});
+
 //Récupération des dons d'un restaurant
 router.get("/giver", (req, res, next) => {
   if (!req.user || !req.user.clientType === "restaurant") {

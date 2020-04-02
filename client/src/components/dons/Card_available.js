@@ -2,7 +2,6 @@ import React from "react";
 import UnitDonCard from "./UnitDonCard";
 import donationServices from "./donationServices";
 
-
 class CarddonAvailable extends React.Component {
   state = {
     isOpen: false,
@@ -107,7 +106,7 @@ class CarddonAvailable extends React.Component {
                 <button className="btn">Modifier</button>
                 <img
                   src="/delete.svg"
-                  alt ="delete"
+                  alt="delete"
                   onClick={() => this.deleteDon()}
                   style={{ cursor: "pointer" }}
                 />

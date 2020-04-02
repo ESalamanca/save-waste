@@ -131,6 +131,14 @@ class App extends Component {
                   }}
                 />
 
+                <Route exact path='/edit/:donationID' render ={props =>{
+                  if (this.state.user.clientType === "restaurant") {
+                    return (
+                        <DonationEdit user={this.state.user} {...props} />
+                      )
+                    );
+                }}}/>
+
                 <Route
                   exact
                   path="/available-donation"
