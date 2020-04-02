@@ -94,7 +94,7 @@ function MenuBar(props) {
                   to="/"
                   className={classes.buttons}
                 >
-                  <img src="icon_menu.svg" alt="to menu" />{" "}
+                  <img src="deco.svg" alt="deco" />{" "}
                 </button>
               </div>
             </div>
