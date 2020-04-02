@@ -60,9 +60,14 @@ class App extends Component {
         />
         <Route
           render={props => (
+        
             <div className="App" data-route={props.location.pathname}>
               {" "}
               {/* data-route="/" allow us to style pages */}
+              <div className="background-green">
+              </div>
+              <div className="background-grey">
+              </div>
               <Switch>
                 <Route
                   exact
@@ -98,8 +103,10 @@ class App extends Component {
                   render={props => (
                     <Profile
                       user={this.state.user}
+                      {...props}
                       updateUser={this.updateUser}
                       history={props.history}
+                      getCurrentPageName={this.getCurrentPageName}
                     />
                   )}
                 />
@@ -110,7 +117,6 @@ class App extends Component {
                     <ProfileEdit
                       user={this.state.user}
                       updateUser={this.updateUser}
-                      {...props}
                     />
                   )}
                 />
@@ -122,7 +128,7 @@ class App extends Component {
                       return (
                         (this.state.user.address === "" ||
                           this.state.user.address) && (
-                          <DonationForm user={this.state.user} {...props} />
+                          <DonationForm user={this.state.user} {...props} getCurrentPageName={this.getCurrentPageName} />
                         )
                       );
                     } else {
@@ -160,7 +166,7 @@ class App extends Component {
                   path="/dashboard"
                   render={props =>
                     this.state.user._id && (
-                      <Dashboard user={this.state.user} {...props} />
+                      <Dashboard user={this.state.user} {...props} getCurrentPageName={this.getCurrentPageName} />
                     )
                   }
                 />
@@ -169,7 +175,7 @@ class App extends Component {
                   path="/historic"
                   render={props =>
                     this.state.user._id && (
-                      <Historic user={this.state.user} {...props} />
+                      <Historic user={this.state.user} {...props} getCurrentPageName={this.getCurrentPageName} />
                     )
                   }
                 />

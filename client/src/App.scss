@@ -3,17 +3,29 @@ body {
 }
 
 .App {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  background: linear-gradient(
-    rgba(111, 207, 151, 1) 0%,
-    rgba(111, 207, 151, 1) 45%,
-    rgba(250, 248, 248, 1) 45%,
-    rgba(250, 248, 248, 1) 100%
-  );
-  padding-bottom: 6vh;
-  //height: 100vh;
+  // display: flex;
+  // justify-content: center;
+  // flex-direction: column;
+  // padding-bottom: 6vh;
+  // //height: 100vh;
+}
+
+.background-green{
+  width:100vw; 
+  height:45vh;
+  position:absolute;
+  top:0; 
+  background-color:#6FCF97;
+  z-index: -10;
+}
+
+.background-grey{
+  width:100vw; 
+  height:55vh;
+  position:absolute;
+  top:45vh; 
+  background-color: #F6F7F8;
+  z-index: -10;
 }
 
 input,

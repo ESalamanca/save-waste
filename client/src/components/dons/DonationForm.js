@@ -9,6 +9,12 @@ import donationServices from "./donationServices";
 import moment from "moment";
 
 class DonationForm extends React.Component {
+
+  componentDidMount = () => {
+    this.props.getCurrentPageName("Nouveau don");
+  };
+
+
   render() {
     console.log("props", this.props);
     return (
@@ -82,7 +88,6 @@ class DonationForm extends React.Component {
 
           return (
             <>
-              <h1>Nouveau don</h1>
               <Form className="form donation">
                 {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
                 <h2>Qu'est-ce que vous souhaitez donner? </h2>

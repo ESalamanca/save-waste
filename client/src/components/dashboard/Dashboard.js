@@ -15,15 +15,6 @@ class Dashboard extends React.Component {
     donations: []
   };
 
-  // PERMET DE RENDRE LE TITRE DE LA PAGE DYBAMIQUE --> A REPLACER
-  // componentDidMount(){
-  //   this.props.getCurrentPageName("Tableau de bord");
-  // }
-  // render(){
-  //   return(
-  // state = {
-  //   donations: []
-  // };
   fetchDonationsUser = () => {
     if (this.props.user.clientType === "restaurant") {
       this.fetchDonationsRestaurant();
@@ -46,6 +37,7 @@ class Dashboard extends React.Component {
   };
 
   componentDidMount = () => {
+    this.props.getCurrentPageName("Tableau de bord");
     this.fetchDonationsUser();
   };
 

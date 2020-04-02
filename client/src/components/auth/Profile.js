@@ -4,6 +4,11 @@ import authService from "./auth-service.js";
 import { Link, Redirect } from "react-router-dom";
 
 export default class extends React.Component {
+
+  componentDidMount = () => {
+    this.props.getCurrentPageName("Profil");
+  };
+
   render() {
     return (
       <>
