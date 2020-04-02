@@ -4,18 +4,6 @@ import donationServices from "../dons/donationServices";
 
 class Historicview extends React.Component {
 
-  // componentDidMount = () => {
-  //   this.props.getCurrentPageName("Historique");
-  // };
-
-  //   render(){
-  //     return(
-  //       <div className="card_dons">
-  //         <CarddonPicked/>  
-  //       </div>
-       
-  //     )
-  // TODO 
 
   state = {
     donations: []
@@ -44,6 +32,7 @@ class Historicview extends React.Component {
 
   componentDidMount = () => {
     this.fetchDonationsUser();
+    this.props.getCurrentPageName("Historique");
   };
 
   render() {
