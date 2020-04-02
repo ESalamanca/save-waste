@@ -19,7 +19,6 @@ router.post("/new-donation", (req, res, next) => {
   const donationBox = req.body.donationBox; //Array of donation items
   const giver = req.user._id;
   const status = "pending";
-  const pickDate = req.body.pickDate || "";
   const location = req.body.location || req.user.address || "";
   const GeoLoc = req.body.GeoLoc || req.user.GeoLoc || {};
   //NE FONCTIONNE PAS
@@ -32,7 +31,6 @@ router.post("/new-donation", (req, res, next) => {
     // boxExpirationDate,
     giver,
     status,
-    pickDate,
     location,
     GeoLoc
   });
@@ -60,6 +58,8 @@ router.get("/donation/:id", (req, res, next) => {
     });
     return;
   }
+
+  Donation.find();
 });
 
 //Récupération des dons d'un restaurant
