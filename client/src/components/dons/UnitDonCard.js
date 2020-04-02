@@ -14,23 +14,30 @@ class UnitDonCard extends React.Component {
 
     return (
       <div className="cardInfo">
-        <div>
-          <div>Produit: {this.props.productName}</div>
+
+          <div className="productName"> 
+          <div>Produit: </div>
+          <div>{this.props.productName}</div>
+          </div>
+
           <div className="productType">
-            Type: {this.props.productType}
+            <div>Type: {this.props.productType}</div>
             <div>
               <img src={foodTypes[this.props.productType]} alt="food type" />
             </div>
           </div>
-          <div>
-            Poids: {this.props.quantity.value}{" "}
-            {" " + this.props.quantity.qtyType}
+
+          <div className="productWeight">
+            <div> Poids: </div>
+            <div>{this.props.quantity.value}{" "}
+            {" " + this.props.quantity.qtyType}</div>
           </div>
-          <div>
-            Date de peremption: {expiration}
+
+          <div className="productexpDate">
+            <div>Date de peremption: </div><div>{expiration}</div>
           </div>
-        </div>
       </div>
+      
     );
   }
 }
