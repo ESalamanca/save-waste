@@ -1,13 +1,8 @@
-body {
-  // background-color: grayscale($color: #e8d5d5);
-}
+
 
 .App {
-  // display: flex;
-  // justify-content: center;
-  // flex-direction: column;
-  // padding-bottom: 6vh;
-  // //height: 100vh;
+  font-family: "Open Sans";
+  color: #5e6488;
 }
 
 .background-green{
@@ -168,9 +163,9 @@ h1 {
   padding: 0.8em 1em 0.3em 1em;
 
   h1 {
-    font-size: 22px;
+    font-size: 20px;
     color: #5e6488;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   img {
@@ -198,7 +193,7 @@ header.MuiAppBar-colorPrimary {
 }
 
 .loupe{
-  height:2.2em; 
+  height:1.8em; 
 }
 //    _____  _____   ____  ______ _____ _      ______ 
 //   |  __ \|  __ \ / __ \|  ____|_   _| |    |  ____|
@@ -546,7 +541,6 @@ a.btn {
 .dashboard {
   .Kpi2 {
     padding: 0.6em;
-    display: flex;
     align-items: center;
     p {
       margin: 0;
@@ -571,38 +565,42 @@ a.btn {
 */
 .Kpi1 {
   width: auto;
-  padding: 0px 90px;
   text-align: center;
-  font-size: 40px;
-  font-weight: 400;
+  color:#5E6488;
 
-  .bigKPI {
-    font-size: 20px;
-    font-weight: 300;
+  .amount {
+    font-size: 40px;
+    font-weight: 550;
     padding: 0;
+    margin-left: 0.1em;
   }
 
-  .cashSave {
+  .euro {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 450;
     padding: 0;
+    margin-left: 0.1em;
+  }
+
+  .wording {
+    font-size: 16px;
+    font-weight: 550;
+    padding: 0px 5px 15px 5px ;
     margin-left: 0.1em;
   }
 }
 
 .Kpi2 {
-  width: 180px;
+  width: 168px;
   border-radius: 4px;
   margin: auto;
   display: block;
   background-color: #e6e6e6;
   font-size: 14px;
-  font-family: "Open Sans";
   text-align: center;
-  padding: 0.3em;
   opacity: 0.8;
   font-weight: 600;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .Kpi3 {
@@ -613,11 +611,11 @@ a.btn {
   background-color: white;
   padding: 3px 40px;
   font-size: 14px;
-  font-family: "Open Sans";
 
-  h2 {
+  .titreKpi3 {
     text-align: center;
     font-weight: 600;
+    font-size: 20px;
   }
 
   img {

@@ -48,7 +48,7 @@ function MenuBar(props) {
 
   const imgButton = props.user && props.user.clientType === "restaurant"
   ?  <AddIcon />
-  : <img src="zoom.svg" alt="to dashboard" className="loupe" />;
+  : <img src="zoom2.png" alt="to dashboard" className="loupe" />;
 
   const handleLogout = () => {
     authService
