@@ -48,8 +48,8 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.3em 2em;
-  padding-bottom: 8vh;
+  padding: 1em 3em 3em 3em;
+  
 
   .cta {
     display: flex;
@@ -78,7 +78,7 @@ h1 {
   align-items: center;
 
   background-color: white;
-  margin: 0 1.4em;
+  margin: 1.4em 1.4em 7em 1.4em;
   border-radius: 1em;
   box-shadow: rgba(171, 195, 173, 0.67) 0px 0px 4px 3px;
 
@@ -198,26 +198,30 @@ header.MuiAppBar-colorPrimary {
 .container.profile {
   padding-top: 1em;
   background-color: white;
-  margin: 0 1.4em;
+  margin: 1em 1.4em 7em 1.4em;
   border-radius: 1em;
-  box-shadow: rgba(171, 195, 173, 0.67) 0px 0px 4px 3px;
+  box-shadow: rgba(218, 233, 219, 0.67) 0px 0px 4px 3px;
+  .avatar{
+    margin-top:1em;
+    margin-bottom:1em; 
 
-  h1 {
-    margin-top: 0;
   }
-
   a {
     width: 80%;
     color: black;
 
     button.btn {
       width: 100%;
-      background-color: #f6f7f8;
       font-size: 1em;
       margin-top: 1em;
     }
   }
-
+  .info{
+    width:200px;
+  }
+  .profile-type{
+    text-align: center;
+  }
   .profile-item {
     display: flex;
     flex-direction: column;
@@ -653,6 +657,7 @@ a.btn {
       .productType, .productName, .productWeight, .productexpDate {
         display: flex;
         align-items: center;
+        margin-top:0.5em; 
         margin-left: auto;
         justify-content: space-between;
       }
@@ -676,5 +681,30 @@ a.btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .dateRecup, .placeRecup{
+    margin-top:0.5em;
+    display:flex;
+  }
+  
+}
+
+//    _    _ _____  _____ _______ ____  _____  _____ _____  __      _______ ________          __
+//   | |  | |_   _|/ ____|__   __/ __ \|  __ \|_   _/ ____| \ \    / /_   _|  ____\ \        / /
+//   | |__| | | | | (___    | | | |  | | |__) | | || |       \ \  / /  | | | |__   \ \  /\  / / 
+//   |  __  | | |  \___ \   | | | |  | |  _  /  | || |        \ \/ /   | | |  __|   \ \/  \/ /  
+//   | |  | |_| |_ ____) |  | | | |__| | | \ \ _| || |____     \  /   _| |_| |____   \  /\  /   
+//   |_|  |_|_____|_____/   |_|  \____/|_|  \_\_____\_____|     \/   |_____|______|   \/  \/    
+//                                                                                              
+// 
+.historicview{
+  display:block;
+  .btn-download{
+    background-color: yellow; 
+    border-radius: 0.5em;
+    padding:0.3em 1em; 
+    text-align: center;
+    display:flex; 
+    margin:auto; 
   }
 }

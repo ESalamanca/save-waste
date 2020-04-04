@@ -24,7 +24,7 @@ class CarddonBooked extends React.Component {
       pending: "Panier Disponible",
       booked: `Panier Réservé`
     };
-    const dateRecuperation = moment(this.props.pickDate).format("DD/MM/YY");
+    const dateRecup = moment(this.props.updated_at).format("DD/MM/YY");
 
     //Le bouton pour les associations
 
@@ -70,10 +70,8 @@ class CarddonBooked extends React.Component {
                   />
                 )
             )}
-            <div>
-              A récupérer avant le : {dateRecuperation}
-              {this.props.location}
-            </div>
+           <div className="dateRecup"><div><img src="/calendar-month.svg"alt="calendar"/></div><div>A récupérer avant le : {dateRecup}</div></div>
+            <div className="placeRecup"><div><img src="/check-in.svg"alt="check-in "/></div><div>{this.props.location}</div></div>
 
             {this.props.user.clientType === "association" ? (
               <button className="btn" onClick={this.pickupDon}>

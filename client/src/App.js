@@ -118,6 +118,7 @@ class App extends Component {
                     <ProfileEdit
                       user={this.state.user}
                       updateUser={this.updateUser}
+                      {...props}
                     />
                   )}
                 />

@@ -34,7 +34,7 @@ class UnitDonCard extends React.Component {
           </div>
 
           <div className="productexpDate">
-            <div>Date de peremption: </div><div>{expiration}</div>
+            <div>Expire le: </div><div>{expiration}</div>
           </div>
       </div>
       
