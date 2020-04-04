@@ -11,8 +11,7 @@ import donationServices from "../dons/donationServices";
 
 class Dashboard extends React.Component {
   state = {
-    donations: [],
-    donationsAvailable: 0
+    donations: []
   };
 
   fetchDonationsUser = () => {
@@ -36,20 +35,14 @@ class Dashboard extends React.Component {
       .catch(err => this.setState({ donations: {} }));
   };
 
-  fetchDonationsAvailable = () => {
-    donationServices
-      .getDonationsAvailable()
-      .then(data => this.setState({ donationsAvailable: data.length }))
-      .catch(err => this.setState({ donationsAvailable: 0 }));
-  };
-
   componentDidMount = () => {
     this.props.getCurrentPageName("Tableau de bord");
     this.fetchDonationsUser();
-    this.fetchDonationsAvailable();
   };
 
   render() {
+    //const isResto = this.props.user.clientType === "restaurant"
+
     const donsDone = this.state.donations.filter(
       don => don.status === "pickedUp"
     );
@@ -66,7 +59,6 @@ class Dashboard extends React.Component {
     return (
       <div className="dashboard">
         <KpiTop
-          user={this.props.user}
           amount={amount}
           nbDonsOnGoing={
             this.props.user.clientType === "restaurant"
@@ -105,7 +97,6 @@ class Dashboard extends React.Component {
           donsDone={donsDone}
           nbmealsGiven={nbmealsGiven}
           emissionsCO2={emissionsCO2}
-          user={this.props.user}
         />
       </div>
     );

@@ -46,15 +46,19 @@ function MenuBar(props) {
   console.log(props);
   console.log("this is url ", url);
 
-  const imgButton = props.user && props.user.clientType === "restaurant"
-  ?  <AddIcon />
-  : <img src="zoom2.png" alt="to dashboard" className="loupe" />;
+  const imgButton =
+    props.user && props.user.clientType === "restaurant" ? (
+      <AddIcon />
+    ) : (
+      <img src="zoom2.png" alt="to dashboard" className="loupe" />
+    );
 
   const handleLogout = () => {
     authService
       .logout()
       .then(response => {
         props.updateUser({});
+        props.history.push("/");
       })
       .catch(console.error);
   };
@@ -71,9 +75,7 @@ function MenuBar(props) {
         >
           <Toolbar className="buttons">
             <Link to={url}>
-              <Fab  className={classes.fabButton}>
-                {imgButton}
-              </Fab>
+              <Fab className={classes.fabButton}>{imgButton}</Fab>
             </Link>
 
             <div className="menu">
@@ -95,14 +97,12 @@ function MenuBar(props) {
               {/* TODO ajouter un menu ouvrant qui permet d'accéder à la deconnexion mais à d'autres 
               éléments aussi... pour l'instant on deco directement avec une icone pas très parlante */}
               <div className="iconMenu">
-                <Link to="/">
-                  <img
-                    className={classes.buttons}
-                    onClick={handleLogout}
-                    src="/deco.svg"
-                    alt="deco"
-                  />{" "}
-                </Link>
+                <img
+                  className={classes.buttons}
+                  onClick={handleLogout}
+                  src="/deco.svg"
+                  alt="deco"
+                />{" "}
               </div>
             </div>
           </Toolbar>
