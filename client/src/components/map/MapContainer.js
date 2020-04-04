@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import moment from "moment";
 import RoomIcon from "@material-ui/icons/Room";
 
 export class MapContainer extends Component {
@@ -51,6 +52,12 @@ export class MapContainer extends Component {
                   onClick={this.onMarkerClick}
                   icon={RoomIcon}
                   name={donation.giver.companyName}
+                  pickDate={
+                    donation.pickDate
+                      ? moment(donation.pickDate).format("DD/MM/YY")
+                      : ""
+                  }
+                  placeId={donation._id}
                   position={{
                     lat: donation.GeoLoc.lat,
                     lng: donation.GeoLoc.lng
@@ -65,7 +72,15 @@ export class MapContainer extends Component {
             className="googleInfo"
           >
             <div className="Info">
-              <h1>{this.state.selectedPlace.name}</h1>
+              <h1
+                onClick={() => {
+                  console.log("clicked");
+                  // this.props.toggleCard(this.state.selectedPlace.placeId);
+                }}
+              >
+                {this.state.selectedPlace.name}
+              </h1>
+              <h2>Take before: {this.state.selectedPlace.pickDate}</h2>
             </div>
           </InfoWindow>
         </Map>

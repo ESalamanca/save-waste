@@ -6,7 +6,8 @@ import MapContainer from "../map/MapContainer";
 
 class ListDons extends React.Component {
   state = {
-    donationsAvailable: []
+    donationsAvailable: [],
+    cardOpen: null
   };
 
   fetchDonationsAvailable = () => {
@@ -16,6 +17,10 @@ class ListDons extends React.Component {
       .catch(err => this.setState({ donationsAvailable: {} }));
   };
 
+  toggleCard = id => {
+    console.log("called toggleCard", id);
+    this.setState({ cardOpen: id });
+  };
   componentDidMount = () => {
     this.fetchDonationsAvailable();
   };
@@ -48,6 +53,7 @@ class ListDons extends React.Component {
             <div className="GoogleMap">
               <MapContainer
                 donations={this.state.donationsAvailable}
+                toggleCard={this.toggleCard}
                 google={true}
               />
             </div>
@@ -56,6 +62,7 @@ class ListDons extends React.Component {
               {this.state.donationsAvailable.map(don => (
                 <CarddonAvailable
                   key={don._id}
+                  isOpen={this.state.cardOpen === don._id}
                   user={this.props.user}
                   fetchDonationsAvailable={this.fetchDonationsAvailable}
                   history={this.props.history}
