@@ -10,21 +10,21 @@ body {
   // //height: 100vh;
 }
 
-.background-green{
-  width:100vw; 
-  height:45vh;
-  position:absolute;
-  top:0; 
-  background-color:#6FCF97;
+.background-green {
+  width: 100vw;
+  height: 45vh;
+  position: absolute;
+  top: 0;
+  background-color: #6fcf97;
   z-index: -10;
 }
 
-.background-grey{
-  width:100vw; 
-  height:55vh;
-  position:absolute;
-  top:45vh; 
-  background-color: #F6F7F8;
+.background-grey {
+  width: 100vw;
+  height: 55vh;
+  position: absolute;
+  top: 45vh;
+  background-color: #f6f7f8;
   z-index: -10;
 }
 
@@ -54,7 +54,7 @@ h1 {
   .cta {
     display: flex;
     flex-direction: column;
-    margin-top: 4em;
+    margin-top: 14em;
   }
   p {
     font-size: 20px;
@@ -650,13 +650,15 @@ a.btn {
       margin-top: 20px;
       text-justify: center;
 
-      .productType, .productName, .productWeight, .productexpDate {
+      .productType,
+      .productName,
+      .productWeight,
+      .productexpDate {
         display: flex;
         align-items: center;
         margin-left: auto;
         justify-content: space-between;
       }
-      
     }
 
     img {
