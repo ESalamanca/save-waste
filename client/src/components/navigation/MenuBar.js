@@ -46,6 +46,10 @@ function MenuBar(props) {
   console.log(props);
   console.log("this is url ", url);
 
+  const imgButton = props.user && props.user.clientType === "restaurant"
+  ?  <AddIcon />
+  : <img src="zoom.svg" alt="to dashboard" className="loupe" />;
+
   const handleLogout = () => {
     authService
       .logout()
@@ -65,8 +69,8 @@ function MenuBar(props) {
         >
           <Toolbar className="buttons">
             <Link to={url}>
-              <Fab aria-label="add" className={classes.fabButton}>
-                <AddIcon />
+              <Fab  className={classes.fabButton}>
+                {imgButton}
               </Fab>
             </Link>
 

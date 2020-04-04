@@ -6,7 +6,7 @@ export default props => {
   return (
     <>
       {props.user._id ? (
-        <Redirect to="/profile" />
+        <Redirect to="/dashboard" />
       ) : (
         <div className="container">
           <p>
