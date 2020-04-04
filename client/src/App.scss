@@ -1,13 +1,6 @@
-body {
-  // background-color: grayscale($color: #e8d5d5);
-}
-
 .App {
-  // display: flex;
-  // justify-content: center;
-  // flex-direction: column;
-  // padding-bottom: 6vh;
-  // //height: 100vh;
+  font-family: "Open Sans";
+  color: #5e6488;
 }
 
 .background-green {
@@ -48,27 +41,242 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.3em 2em;
-  padding-bottom: 8vh;
+  padding: 1em 3em 3em 3em;
 
-  .cta {
+  <<<<<<< head .cta {
     display: flex;
     flex-direction: column;
     margin-top: 14em;
   }
-  p {
+  =======>>>>>>>d97df8002a7e36ffeaea26e7ba457eb7992ddb33 p {
     font-size: 20px;
+  }
+
+  .slogan {
+    font-size: 25px;
     text-align: center;
-    //font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: oblique;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 3em;
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: column;
+
+    background-image: url("/legumes.jpg");
+    background-repeat: no-repeat;
+    padding: 3em;
+    border-radius: 1em;
+    margin-top: 10em;
+
+    .btn {
+      margin-top: 2em;
+      font-weight: bold;
+      font-size: 0.8em;
+    }
   }
 }
 
-/*_____                    
-|  ___|__  _ __ _ __ ___  
-| |_ / _ \| '__| '_ ` _ \ 
-|  _| (_) | |  | | | | | |
-|_|  \___/|_|  |_| |_| |_|
-*/
+//    _    _  ____  __  __ ______
+//   | |  | |/ __ \|  \/  |  ____|
+//   | |__| | |  | | \  / | |__
+//   |  __  | |  | | |\/| |  __|
+//   | |  | | |__| | |  | | |____
+//   |_|  |_|\____/|_|  |_|______|
+//
+//
+
+[data-route="/"],
+[data-route="/profile"],
+[data-route="/profile/edit"] {
+  .popin__one {
+    display: block;
+
+    .cta {
+      margin-bottom: 0;
+    }
+  }
+
+  p em {
+    font-style: normal;
+    color: gray;
+  }
+
+  .btn + .btn {
+    margin-top: 1em;
+  }
+
+  img.avatar {
+    display: block;
+    width: 9em;
+    height: 9em;
+    border-radius: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+    background: #e1e1e1;
+    margin-bottom: 1em;
+    object-fit: cover;
+  }
+}
+
+//    _      ____   _____ _____ _   _       _______ _____ _____ _   _ _    _ _____
+//   | |    / __ \ / ____|_   _| \ | |     / / ____|_   _/ ____| \ | | |  | |  __ \
+//   | |   | |  | | |  __  | | |  \| |    / / (___   | || |  __|  \| | |  | | |__) |
+//   | |   | |  | | | |_ | | | | . ` |   / / \___ \  | || | |_ | . ` | |  | |  ___/
+//   | |___| |__| | |__| |_| |_| |\  |  / /  ____) |_| || |__| | |\  | |__| | |
+//   |______\____/ \_____|_____|_| \_| /_/  |_____/|_____\_____|_| \_|\____/|_|
+//
+//
+
+[data-route="/login"],
+[data-route="/signup"] {
+  .popin__one h1 {
+    margin-top: 0;
+  }
+
+  p small {
+    color: gray;
+  }
+
+  p small + .btn {
+    margin-top: 1em;
+  }
+}
+
+//    _   _     __      ______          _____
+//   | \ | |   /\ \    / /  _ \   /\   |  __ \
+//   |  \| |  /  \ \  / /| |_) | /  \  | |__) |
+//   | . ` | / /\ \ \/ / |  _ < / /\ \ |  _  /
+//   | |\  |/ ____ \  /  | |_) / ____ \| | \ \
+//   |_| \_/_/    \_\/   |____/_/    \_\_|  \_\
+//
+//
+
+.navbar {
+  height: 9vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8em 1em 0.3em 1em;
+
+  h1 {
+    font-size: 20px;
+    color: #5e6488;
+    font-weight: 600;
+  }
+
+  img {
+    width: 2.7em;
+    margin: 1em;
+  }
+}
+
+.menu {
+  width: 100%;
+  height: 8vh;
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: white;
+
+  img {
+    width: 3.8em;
+  }
+}
+header.MuiAppBar-colorPrimary {
+  background-color: white;
+}
+
+.loupe {
+  height: 1.8em;
+}
+//    _____  _____   ____  ______ _____ _      ______
+//   |  __ \|  __ \ / __ \|  ____|_   _| |    |  ____|
+//   | |__) | |__) | |  | | |__    | | | |    | |__
+//   |  ___/|  _  /| |  | |  __|   | | | |    |  __|
+//   | |    | | \ \| |__| | |     _| |_| |____| |____
+//   |_|    |_|  \_\\____/|_|    |_____|______|______|
+//
+//
+
+.container.profile {
+  padding-top: 1em;
+  background-color: white;
+  margin: 1em 1.4em 7em 1.4em;
+  border-radius: 1em;
+  box-shadow: rgba(218, 233, 219, 0.67) 0px 0px 4px 3px;
+  .avatar {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  a {
+    width: 80%;
+    color: black;
+
+    button.btn {
+      width: 100%;
+      font-size: 1em;
+      margin-top: 1em;
+    }
+  }
+  .info {
+    width: 200px;
+    color: black;
+  }
+  .profile-type {
+    text-align: center;
+  }
+  .profile-item {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    h3 {
+      margin-top: 1em;
+      margin-bottom: 0;
+    }
+    p {
+      font-size: 1em;
+      padding: 0.2em;
+      border-radius: 3px;
+      border: none;
+      background-color: #f6f6f6;
+      min-height: 30px;
+      text-align: left;
+      margin-top: 0.2em;
+      margin-bottom: 0.2em;
+    }
+  }
+}
+
+.label-file {
+  cursor: pointer;
+  text-align: center;
+  color: #6fcf97;
+  font-weight: bold;
+  border: 1px solid #6fcf97;
+  padding: 0.2em;
+  width: 50%;
+}
+.label-file:hover {
+  color: white;
+}
+
+// et on masque le input
+.input-file {
+  display: none;
+}
+
+//    ______ ____  _____  __  __
+//   |  ____/ __ \|  __ \|  \/  |
+//   | |__ | |  | | |__) | \  / |
+//   |  __|| |  | |  _  /| |\/| |
+//   | |   | |__| | | \ \| |  | |
+//   |_|    \____/|_|  \_\_|  |_|
+//
+//
 
 .form {
   display: flex;
@@ -78,7 +286,7 @@ h1 {
   align-items: center;
 
   background-color: white;
-  margin: 0 1.4em;
+  margin: 1em 1.4em 7em 1.4em;
   border-radius: 1em;
   box-shadow: rgba(171, 195, 173, 0.67) 0px 0px 4px 3px;
 
@@ -144,126 +352,14 @@ h1 {
   }
 }
 
-/*_   _             _                
- | \ | | __ ___   _| |__   __ _ _ __ 
- |  \| |/ _` \ \ / / '_ \ / _` | '__|
- | |\  | (_| |\ V /| |_) | (_| | |   
- |_| \_|\__,_| \_/ |_.__/ \__,_|_|                                       
-*/
-
-.navbar {
-  height: 9vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.8em 1em 0.3em 1em;
-
-  h1 {
-    font-size: 22px;
-    color: #5e6488;
-    font-weight: 500;
-  }
-
-  img {
-    width: 2.7em;
-    margin: 1em;
-  }
-}
-
-.menu {
-  width: 100%;
-  height: 8vh;
-  padding-top: 5px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  background-color: white;
-
-  img {
-    width: 3.8em;
-  }
-}
-header.MuiAppBar-colorPrimary {
-  background-color: white;
-}
-/*
-  ____             __ _ _      
- |  _ \ _ __ ___  / _(_) | ___ 
- | |_) | '__/ _ \| |_| | |/ _ \
- |  __/| | | (_) |  _| | |  __/
- |_|   |_|  \___/|_| |_|_|\___|
-                               
-*/
-
-.container.profile {
-  padding-top: 1em;
-  background-color: white;
-  margin: 0 1.4em;
-  border-radius: 1em;
-  box-shadow: rgba(171, 195, 173, 0.67) 0px 0px 4px 3px;
-
-  h1 {
-    margin-top: 0;
-  }
-
-  a {
-    width: 80%;
-    color: black;
-
-    button.btn {
-      width: 100%;
-      background-color: #f6f7f8;
-      font-size: 1em;
-      margin-top: 1em;
-    }
-  }
-
-  .profile-item {
-    display: flex;
-    flex-direction: column;
-    h3 {
-      margin-top: 1em;
-      margin-bottom: 0;
-    }
-    p {
-      font-size: 1em;
-      padding: 0.2em;
-      border-radius: 3px;
-      border: none;
-      background-color: #f6f6f6;
-      min-height: 30px;
-      text-align: left;
-      margin-top: 0.2em;
-      margin-bottom: 0.2em;
-    }
-  }
-}
-
-.label-file {
-  cursor: pointer;
-  text-align: center;
-  color: #6fcf97;
-  font-weight: bold;
-  border: 1px solid #6fcf97;
-  padding: 0.2em;
-  width: 50%;
-}
-.label-file:hover {
-  color: white;
-}
-
-// et on masque le input
-.input-file {
-  display: none;
-}
-/*
-  ____                    _   _             _____                    
- |  _ \  ___  _ __   __ _| |_(_) ___  _ __ |  ___|__  _ __ _ __ ___  
- | | | |/ _ \| '_ \ / _` | __| |/ _ \| '_ \| |_ / _ \| '__| '_ ` _ \ 
- | |_| | (_) | | | | (_| | |_| | (_) | | | |  _| (_) | |  | | | | | |
- |____/ \___/|_| |_|\__,_|\__|_|\___/|_| |_|_|  \___/|_|  |_| |_| |_|
-                                                                     
-*/
+//    _____   ____  _   _       _______ _____ ____  _   _   ______ ____  _____  __  __
+//   |  __ \ / __ \| \ | |   /\|__   __|_   _/ __ \| \ | | |  ____/ __ \|  __ \|  \/  |
+//   | |  | | |  | |  \| |  /  \  | |    | || |  | |  \| | | |__ | |  | | |__) | \  / |
+//   | |  | | |  | | . ` | / /\ \ | |    | || |  | | . ` | |  __|| |  | |  _  /| |\/| |
+//   | |__| | |__| | |\  |/ ____ \| |   _| || |__| | |\  | | |   | |__| | | \ \| |  | |
+//   |_____/ \____/|_| \_/_/    \_\_|  |_____\____/|_| \_| |_|    \____/|_|  \_\_|  |_|
+//
+//
 [data-route="/new-donation"] {
   h1 {
     text-align: center;
@@ -389,14 +485,14 @@ header.MuiAppBar-colorPrimary {
     }
   }
 }
-/*
-  _     _         
- | |   | |        
- | |__ | |_ _ __  
- | '_ \| __| '_ \ 
- | |_) | |_| | | |
- |_.__/ \__|_| |_|
-*/
+//    ____ _______ _   _
+//   |  _ \__   __| \ | |
+//   | |_) | | |  |  \| |
+//   |  _ <  | |  | . ` |
+//   | |_) | | |  | |\  |
+//   |____/  |_|  |_| \_|
+//
+//
 
 .btn {
   display: inline-block;
@@ -425,78 +521,6 @@ a.btn {
   width: 100%;
 }
 
-/*
-  _                          
- | |                         
- | |__   ___  _ __ ___   ___ 
- | '_ \ / _ \| '_ ` _ \ / _ \
- | | | | (_) | | | | | |  __/
- |_| |_|\___/|_| |_| |_|\___|
-*/
-
-[data-route="/"],
-[data-route="/profile"],
-[data-route="/profile/edit"] {
-  .popin__one {
-    display: block;
-
-    .cta {
-      margin-bottom: 0;
-    }
-  }
-
-  p em {
-    font-style: normal;
-    color: gray;
-  }
-
-  // [data-route="/profile"],
-  // [data-route="/profile/edit"] {
-  //   //.btn.logout {background-color:transparent;color:red;}
-
-  .btn + .btn {
-    margin-top: 1em;
-  }
-
-  img.avatar {
-    display: block;
-    width: 9em;
-    height: 9em;
-    border-radius: 100%;
-    object-fit: contain;
-    margin: 0 auto;
-    background: #e1e1e1;
-    margin-bottom: 1em;
-    object-fit: cover;
-  }
-}
-
-/*
-  _             _           __  _                         
- | |           (_)         / / (_)                        
- | | ___   __ _ _ _ __    / /__ _  __ _ _ __  _   _ _ __  
- | |/ _ \ / _` | | '_ \  / / __| |/ _` | '_ \| | | | '_ \ 
- | | (_) | (_| | | | | |/ /\__ \ | (_| | | | | |_| | |_) |
- |_|\___/ \__, |_|_| |_/_/ |___/_|\__, |_| |_|\__,_| .__/ 
-           __/ |                   __/ |           | |    
-          |___/                   |___/            |_|    
-*/
-
-[data-route="/login"],
-[data-route="/signup"] {
-  .popin__one h1 {
-    margin-top: 0;
-  }
-
-  p small {
-    color: gray;
-  }
-
-  p small + .btn {
-    margin-top: 1em;
-  }
-}
-
 //    _____           _____ _    _ ____   ____          _____  _____
 //   |  __ \   /\    / ____| |  | |  _ \ / __ \   /\   |  __ \|  __ \
 //   | |  | | /  \  | (___ | |__| | |_) | |  | | /  \  | |__) | |  | |
@@ -508,7 +532,6 @@ a.btn {
 .dashboard {
   .Kpi2 {
     padding: 0.6em;
-    display: flex;
     align-items: center;
     p {
       margin: 0;
@@ -533,38 +556,42 @@ a.btn {
 */
 .Kpi1 {
   width: auto;
-  padding: 0px 90px;
   text-align: center;
-  font-size: 40px;
-  font-weight: 400;
+  color: #5e6488;
 
-  .bigKPI {
-    font-size: 20px;
-    font-weight: 300;
+  .amount {
+    font-size: 40px;
+    font-weight: 550;
     padding: 0;
+    margin-left: 0.1em;
   }
 
-  .cashSave {
+  .euro {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 450;
     padding: 0;
+    margin-left: 0.1em;
+  }
+
+  .wording {
+    font-size: 16px;
+    font-weight: 550;
+    padding: 0px 5px 15px 5px;
     margin-left: 0.1em;
   }
 }
 
 .Kpi2 {
-  width: 180px;
+  width: 168px;
   border-radius: 4px;
   margin: auto;
   display: block;
   background-color: #e6e6e6;
   font-size: 14px;
-  font-family: "Open Sans";
   text-align: center;
-  padding: 0.3em;
   opacity: 0.8;
   font-weight: 600;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .Kpi3 {
@@ -575,11 +602,11 @@ a.btn {
   background-color: white;
   padding: 3px 40px;
   font-size: 14px;
-  font-family: "Open Sans";
 
-  h2 {
+  .titreKpi3 {
     text-align: center;
     font-weight: 600;
+    font-size: 20px;
   }
 
   img {
@@ -656,6 +683,7 @@ a.btn {
       .productexpDate {
         display: flex;
         align-items: center;
+        margin-top: 0.5em;
         margin-left: auto;
         justify-content: space-between;
       }
@@ -678,6 +706,11 @@ a.btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .dateRecup,
+  .placeRecup {
+    margin-top: 0.5em;
+    display: flex;
   }
 }
 // #                      ######
@@ -747,13 +780,22 @@ a.btn {
   margin-bottom: 13vh;
 }
 
-// #     #
-// #     # #  ####  #####  ####  #####  #  ####
-// #     # # #        #   #    # #    # # #    #
-// ####### #  ####    #   #    # #    # # #
-// #     # #      #   #   #    # #####  # #
-// #     # # #    #   #   #    # #   #  # #    #
-// #     # #  ####    #    ####  #    # #  ####
-.historic {
-  margin-top: 13em;
+//    _    _ _____  _____ _______ ____  _____  _____ _____  __      _______ ________          __
+//   | |  | |_   _|/ ____|__   __/ __ \|  __ \|_   _/ ____| \ \    / /_   _|  ____\ \        / /
+//   | |__| | | | | (___    | | | |  | | |__) | | || |       \ \  / /  | | | |__   \ \  /\  / /
+//   |  __  | | |  \___ \   | | | |  | |  _  /  | || |        \ \/ /   | | |  __|   \ \/  \/ /
+//   | |  | |_| |_ ____) |  | | | |__| | | \ \ _| || |____     \  /   _| |_| |____   \  /\  /
+//   |_|  |_|_____|_____/   |_|  \____/|_|  \_\_____\_____|     \/   |_____|______|   \/  \/
+//
+//
+.historicview {
+  display: block;
+  .btn-download {
+    background-color: yellow;
+    border-radius: 0.5em;
+    padding: 0.3em 1em;
+    text-align: center;
+    display: flex;
+    margin: auto;
+  }
 }

@@ -6,14 +6,8 @@ class Kpi extends React.Component {
   render() {
     return (
       <div>
-        <div className="Kpi1">
-          <span>{this.props.amount}</span>
-          <span className="cashSave">€</span>
-          <div className="bigKPI"> d'impôt économisés</div>
-        </div>
-        <div className="Kpi2">
-          <span> ⬇️{this.props.donsonGoing} dons en cours 😍</span>
-        </div>
+       
+       
 
         <CarddonBooked />
         <CarddonAvailable />

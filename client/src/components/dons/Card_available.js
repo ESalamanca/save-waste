@@ -98,14 +98,19 @@ class CarddonAvailable extends React.Component {
                   />
                 )
             )}
-            <div>
-              <img src="/calendar-month.svg" alt="calendar" />A récupérer avant
-              le : {dateRecuperation}
+            <div className="dateRecup">
+              <div>
+                <img src="/calendar-month.svg" alt="calendar" />
+              </div>
+              <div>A récupérer avant le : {dateRecuperation}</div>
+            </div>
+            <div className="placeRecup">
               <div>
                 <img src="/check-in.svg" alt="check-in " />
-                {this.props.location}
               </div>
+              <div>{this.props.location}</div>
             </div>
+
             {this.props.user.clientType === "association" ? (
               <button className="btn" onClick={this.bookDon}>
                 Réserver

@@ -6,13 +6,13 @@ export default props => {
   return (
     <>
       {props.user._id ? (
-        <Redirect to="/profile" />
+        <Redirect to="/dashboard" />
       ) : (
         <div className="container">
-          <p>
-            Faites de vos surplus des dons et économisez de l’argent avec
-            SaveWaste
-          </p>
+          <div className="slogan">
+            "Faites de vos surplus des dons et économisez de l’argent avec
+            SaveWaste" 
+          </div>
 
           <div className="cta">
             <Link className="btn" to="/signup">
@@ -22,6 +22,11 @@ export default props => {
               Log in
             </Link>
           </div>
+          {/*<div className="deco">
+          <img src="resto.jpg" alt="resto"/>
+          <img src="assos.jpg" alt="asso"/>
+          </div>*/}
+          
         </div>
       )}
     </>
