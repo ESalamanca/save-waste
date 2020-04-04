@@ -185,6 +185,11 @@ h1 {
 }
 header.MuiAppBar-colorPrimary {
   background-color: white;
+
+}
+
+.loupe{
+  height:2.2em; 
 }
 /*
   ____             __ _ _      
@@ -408,7 +413,9 @@ header.MuiAppBar-colorPrimary {
   text-align: center;
   cursor: pointer;
   margin: 2em 0 2em 0’;
+ 
 }
+
 
 button.btn {
   border: inherit;
