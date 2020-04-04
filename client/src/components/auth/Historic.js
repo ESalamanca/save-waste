@@ -3,8 +3,6 @@ import CarddonPicked from "../dons/Card_picked.js";
 import donationServices from "../dons/donationServices";
 
 class Historicview extends React.Component {
-
-
   state = {
     donations: []
   };
@@ -41,7 +39,7 @@ class Historicview extends React.Component {
     );
 
     return (
-      <div className="dashboard">
+      <div className="dashboard historic">
         {donsDone.map(don => (
           <CarddonPicked
             key={don._id}

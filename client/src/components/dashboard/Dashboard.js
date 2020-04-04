@@ -60,7 +60,11 @@ class Dashboard extends React.Component {
       <div className="dashboard">
         <KpiTop
           amount={amount}
-          nbDonsOnGoing={donsBooked.length + donsAvailable.length}
+          nbDonsOnGoing={
+            this.props.user.clientType === "restaurant"
+              ? donsBooked.length + donsAvailable.length
+              : donsBooked.length
+          }
         />
 
         {this.props.user.clientType === "restaurant"

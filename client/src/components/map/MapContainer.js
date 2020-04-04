@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import RoomIcon from "@material-ui/icons/Room";
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -26,27 +27,44 @@ export class MapContainer extends Component {
     return (
       <div>
         <Map
+          donations={this.props.donations}
           style={{
-            minWwidth: "200px",
-            minHeight: "100px"
+            minWidth: "200px",
+            minHeight: "100px",
+            maxWidth: "100%",
+            maxHeight: "300px",
+            width: "400px",
+            height: "400px"
+          }}
+          initialCenter={{
+            lat: 48.87,
+            lng: 2.333333
           }}
           google={this.props.google}
-          zoom={10}
+          zoom={11}
         >
-          <Marker
-            onClick={this.onMarkerClick}
-            icon={{
-              url: "/img/icon.svg",
-              anchor: new google.maps.Point(32, 32),
-              scaledSize: new google.maps.Size(64, 64)
-            }}
-            name={"Current location"}
-          />
+          {this.props.donations &&
+            this.props.donations.map(donation => {
+              return (
+                <Marker
+                  key={donation._id}
+                  onClick={this.onMarkerClick}
+                  icon={RoomIcon}
+                  name={donation.giver.companyName}
+                  position={{
+                    lat: donation.GeoLoc.lat,
+                    lng: donation.GeoLoc.lng
+                  }}
+                />
+              );
+            })}
+
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
+            className="googleInfo"
           >
-            <div>
+            <div className="Info">
               <h1>{this.state.selectedPlace.name}</h1>
             </div>
           </InfoWindow>
@@ -57,5 +75,5 @@ export class MapContainer extends Component {
 }
 export default GoogleApiWrapper({
   apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
-  v: "3"
+  language: "fr"
 })(MapContainer);
