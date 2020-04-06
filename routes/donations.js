@@ -119,7 +119,7 @@ router.get("/available", (req, res, next) => {
   }
 
   Donation.find({ status: "pending" })
-    .populate("giver")
+    .populate("taker giver")
     .then(listDonations => {
       res.status(201).json(listDonations);
     })

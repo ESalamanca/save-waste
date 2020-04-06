@@ -14,6 +14,7 @@ class CarddonPicked extends React.Component {
     const dateRecup = moment(this.props.updated_at).format("DD/MM/YY");
 
     return (
+      <div className="historicview">
       <div className="card_dons">
         {!this.state.isOpen && (
           <div className="cardClosed">
@@ -67,14 +68,16 @@ class CarddonPicked extends React.Component {
                   />
                 )
             )}
-            <p>Récupération à {this.props.location}</p>
-            <p>le {dateRecup}</p>
+            <div className="dateRecup"><div><img src="/calendar-month.svg"alt="calendar"/></div><div>A récupérer avant le : {dateRecup}</div></div>
+            <div className="placeRecup"><div><img src="/check-in.svg"alt="check-in "/></div><div>{this.props.location}</div></div>
 
-            {/*Renvoi au formulaire de don */}
+           <button className="btn-download">Télécharger le certificat de don</button>
           </div>
         )}
+        </div>
       </div>
-    );
+    )
+    
   }
 }
 export default CarddonPicked;

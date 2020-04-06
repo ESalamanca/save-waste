@@ -56,7 +56,10 @@ function MenuBar(props) {
   const handleLogout = () => {
     authService
       .logout()
-      .then(props.updateUser)
+      .then(response => {
+        props.updateUser({});
+        props.history.push("/");
+      })
       .catch(console.error);
   };
 
@@ -94,13 +97,12 @@ function MenuBar(props) {
               {/* TODO ajouter un menu ouvrant qui permet d'accéder à la deconnexion mais à d'autres 
               éléments aussi... pour l'instant on deco directement avec une icone pas très parlante */}
               <div className="iconMenu">
-                <button
-                  onClick={handleLogout}
-                  to="/"
+                <img
                   className={classes.buttons}
-                >
-                  <img src="deco.svg" alt="deco" />{" "}
-                </button>
+                  onClick={handleLogout}
+                  src="/deco.svg"
+                  alt="deco"
+                />{" "}
               </div>
             </div>
           </Toolbar>

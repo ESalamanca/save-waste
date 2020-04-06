@@ -5,7 +5,7 @@ import moment from "moment";
 
 class CarddonAvailable extends React.Component {
   state = {
-    isOpen: false,
+    isOpen: this.props.isOpen,
     statusDon: this.props.status
   };
   toggleCard = () => {
@@ -57,7 +57,7 @@ class CarddonAvailable extends React.Component {
     };*/
 
     return (
-      <div className="card_dons">
+      <div className="card_dons" id={this.props._id}>
         {!this.state.isOpen && (
           <div className="cardClosed">
             <img src="/Gift-Box.png" alt="Logo panier" />
@@ -98,10 +98,19 @@ class CarddonAvailable extends React.Component {
                   />
                 )
             )}
-            <div>
-            <img src="/calendar-month.svg"alt="calendar"/>A récupérer avant le : {dateRecuperation}
-            <div><img src="/check-in.svg"alt="check-in "/>{this.props.location}</div>
+            <div className="dateRecup">
+              <div>
+                <img src="/calendar-month.svg" alt="calendar" />
+              </div>
+              <div>A récupérer avant le : {dateRecuperation}</div>
             </div>
+            <div className="placeRecup">
+              <div>
+                <img src="/check-in.svg" alt="check-in " />
+              </div>
+              <div>{this.props.location}</div>
+            </div>
+
             {this.props.user.clientType === "association" ? (
               <button className="btn" onClick={this.bookDon}>
                 Réserver

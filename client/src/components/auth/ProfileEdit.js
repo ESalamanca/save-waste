@@ -42,6 +42,7 @@ export default class extends React.Component {
               clientType: this.props.user.clientType,
               contactName: this.props.user.contactName || "",
               email: this.props.user.email,
+              password: "",
               phone: this.props.user.phone || "",
               siret: this.props.user.siret || "", //uniquement sociétés
               address: this.props.user.address || "",
@@ -68,6 +69,7 @@ export default class extends React.Component {
             onSubmit={(values, { setSubmitting }) => {
               const {
                 email,
+                password,
                 companyName,
                 clientType,
                 siret,
@@ -81,6 +83,7 @@ export default class extends React.Component {
                   clientType,
                   companyName,
                   email,
+                  password,
                   contactName,
                   address,
                   GeoLoc,
@@ -110,7 +113,7 @@ export default class extends React.Component {
                     alt="avatar"
                   />
                   <label for="file" class="label-file">
-                    Choisir une image
+                  Choisir une image
                   </label>
                   <input
                     id="file"
@@ -145,6 +148,7 @@ export default class extends React.Component {
                     name="companyName"
                   />
 
+                  
                   <label htmlFor="email">Email </label>
 
                   <Field name="email" type="email" />
@@ -153,6 +157,15 @@ export default class extends React.Component {
                     component="span"
                     className="error"
                     name="email"
+                  />
+                  <label htmlFor="password"> Nouveau mot de passe </label>
+
+                  <Field name="password" type="password" />
+
+                  <ErrorMessage
+                    component="span"
+                    className="error"
+                    name="password"
                   />
 
                   <label htmlFor="contactName">Contact </label>

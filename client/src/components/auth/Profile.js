@@ -16,7 +16,6 @@ export default class extends React.Component {
           <Redirect to="/" />
         ) : (
           <div className="container profile">
-            <h1>Mes informations</h1>
             <img
               className="avatar"
               src={
@@ -26,18 +25,18 @@ export default class extends React.Component {
             />
 
             <div className="info">
-              <div className="profile-item">
-                <h3>Nom</h3>
-                <p>{this.props.user.companyName}</p>
-              </div>
-              <div className="profile-item">
+            <div className="profile-type">
                 <h3>
                   {this.props.user.clientType.slice(0, 1).toUpperCase() +
                     this.props.user.clientType.slice(1)}
                 </h3>
               </div>
               <div className="profile-item">
-                <h3>email</h3>
+                <h3>Nom</h3>
+                <p>{this.props.user.companyName}</p>
+              </div>
+              <div className="profile-item">
+                <h3>Email</h3>
                 <p>{this.props.user.email}</p>
               </div>
               <div className="profile-item">
