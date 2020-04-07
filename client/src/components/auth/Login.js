@@ -8,26 +8,30 @@ export default class extends React.Component {
   state = {
     email: "",
     password: "",
-    error: ""
+    error: "",
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     authService
       .login(this.state.email, this.state.password)
-      .then(response => {
+      .then((response) => {
         this.setState({ error: "" });
 
         this.props.updateUser(response);
         this.props.history.push("/");
       })
-      .catch(err => this.setState({ error: err.message }));
+      .catch((err) => this.setState({ error: err.message }));
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  };
+
+  componentDidMount = () => {
+    this.props.getCurrentPageName("SaveWaste");
   };
 
   render() {

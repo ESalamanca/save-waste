@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link, Redirect } from "react-router-dom";
 
-export default props => {
+export default (props) => {
   return (
     <>
       {props.user._id ? (
@@ -11,7 +11,7 @@ export default props => {
         <div className="container">
           <div className="slogan">
             "Faites de vos surplus des dons et économisez de l’argent avec
-            SaveWaste" 
+            SaveWaste"
           </div>
 
           <div className="cta">
@@ -26,7 +26,6 @@ export default props => {
           <img src="resto.jpg" alt="resto"/>
           <img src="assos.jpg" alt="asso"/>
           </div>*/}
-          
         </div>
       )}
     </>

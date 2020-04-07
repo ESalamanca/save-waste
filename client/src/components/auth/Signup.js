@@ -7,6 +7,10 @@ import * as Yup from "yup";
 import authService from "./auth-service.js";
 
 export default class extends React.Component {
+  componentDidMount = () => {
+    this.props.getCurrentPageName("SaveWaste");
+  };
+
   render() {
     return (
       <Formik
@@ -16,7 +20,7 @@ export default class extends React.Component {
           email: "",
           password: "",
           passwordConfirmation: "",
-          error: ""
+          error: "",
         }}
         validationSchema={Yup.object({
           companyName: Yup.string()
@@ -32,19 +36,19 @@ export default class extends React.Component {
             .required("Required"),
           clientType: Yup.string()
             .oneOf(["association", "restaurant"], "Typologie invalide")
-            .required("Required")
+            .required("Required"),
         })}
         onSubmit={(values, { setSubmitting }) => {
           const { email, companyName, clientType, password } = values;
           console.log("values", values);
           authService
             .signup(email, password, companyName, clientType)
-            .then(response => {
+            .then((response) => {
               this.props.updateUser(response);
               setSubmitting(false);
               this.props.history.push("/");
             })
-            .catch(err => console.log(err));
+            .catch((err) => console.log(err));
         }}
       >
         {({ values, setFieldValue }) => {
