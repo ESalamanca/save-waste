@@ -49,17 +49,21 @@ form {
     text-align: center;
     font-style: oblique;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 3em;
+    font-family: "Open Sans";
+    margin-top: 2em;
   }
-
+  img {
+    margin-top: 2em;
+    width: 100vw;
+    border-radius: 5px;
+  }
   .cta {
     display: flex;
     flex-direction: column;
     background-repeat: no-repeat;
     padding: 3em;
     border-radius: 1em;
-    margin-top: 10em;
+    margin-top: -3em;
 
     .btn {
       margin-top: 2em;
@@ -135,6 +139,13 @@ form {
   }
 }
 
+.form.signup {
+  margin-bottom: 1em;
+}
+
+.form.login {
+  margin-top: 7em;
+}
 //    _   _     __      ______          _____
 //   | \ | |   /\ \    / /  _ \   /\   |  __ \
 //   |  \| |  /  \ \  / /| |_) | /  \  | |__) |
@@ -342,6 +353,8 @@ header.MuiAppBar-colorPrimary {
   .btn {
     margin-top: 2em;
     width: 150px;
+    padding: 1em;
+    color: #5e648f;
   }
 
   p {
@@ -655,7 +668,7 @@ a.btn {
     border-radius: 5px;
     margin-top: 5px;
 
-    .wordingRecup{
+    .wordingRecup {
       padding-left: 10px;
     }
 

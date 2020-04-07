@@ -6,17 +6,16 @@ import moment from "moment";
 class CarddonAvailable extends React.Component {
   state = {
     isOpen: this.props.isOpen,
-    statusDon: this.props.status
+    statusDon: this.props.status,
   };
   toggleCard = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
   deleteDon = () => {
-    donationServices.deleteDonation(this.props._id).then(donation => {
-      this.props.fetchDonationsUser();
-      //ici je voudrais refresh la page
-    });
+    donationServices
+      .deleteDonation(this.props._id)
+      .then((response) => this.props.fetchDonationsUser());
   };
   // imgProductType = productType => {
   //   let img_product = "altIMG";
@@ -27,7 +26,7 @@ class CarddonAvailable extends React.Component {
   // };
 
   bookDon = () => {
-    donationServices.bookDonation(this.props._id).then(donation => {
+    donationServices.bookDonation(this.props._id).then((donation) => {
       this.props.fetchDonationsAvailable();
       this.props.history.push("/dashboard");
     });
@@ -37,7 +36,7 @@ class CarddonAvailable extends React.Component {
     const cardHeading = {
       pending: "Panier Disponible",
       booked: "Panier Réservé",
-      pickedUp: "Panier Récupéré"
+      pickedUp: "Panier Récupéré",
     };
     const dateRecuperation = moment(this.props.pickDate).format("DD/MM/YY");
     //Le bouton pour les associations
@@ -89,7 +88,7 @@ class CarddonAvailable extends React.Component {
             </div>
 
             {this.props.donationBox.map(
-              unitDon =>
+              (unitDon) =>
                 this.props.user && (
                   <UnitDonCard
                     key={unitDon._id}
