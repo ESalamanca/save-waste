@@ -627,12 +627,7 @@ a.btn {
   font-family: "Open Sans";
   display: flex;
 
-  // img {
-  //   padding-right: 0px;
-  // }
-
   img {
-    padding-right: 10px;
     margin-left: 0px;
     height: 30px;
   }
@@ -651,6 +646,10 @@ a.btn {
     width: 100%;
     border-radius: 5px;
     margin-top: 5px;
+
+    .wordingRecup{
+      padding-left: 10px;
+    }
 
     .unitDonCard {
       width: 100%;
@@ -689,7 +688,6 @@ a.btn {
     }
 
     img {
-      padding-right: 10px;
       margin-left: 0px;
       height: 30px;
     }

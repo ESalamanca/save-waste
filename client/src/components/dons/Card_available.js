@@ -101,7 +101,7 @@ class CarddonAvailable extends React.Component {
               <div>
                 <img src="/calendar-month.svg" alt="calendar" />
               </div>
-              <div>A récupérer avant le : {dateRecuperation}</div>
+              <div className="wordingRecup">A récupérer avant le : {dateRecuperation}</div>
             </div>
             <div className="placeRecup">
               <div>
