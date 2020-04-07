@@ -7,7 +7,8 @@ const User = require("../models/User");
 router.post("/new-donation", (req, res, next) => {
   if (!req.user || !req.user.clientType === "restaurant") {
     res.status(401).json({
-      message: "Vous devez être un restaurateur authentifié pour créer des dons"
+      message:
+        "Vous devez être un restaurateur authentifié pour créer des dons",
     });
     return;
   }
@@ -34,16 +35,16 @@ router.post("/new-donation", (req, res, next) => {
     status,
     pickDate,
     location,
-    GeoLoc
+    GeoLoc,
   });
   console.log("newDonation", newDonation);
   newDonation
     .save()
-    .then(donation => {
+    .then((donation) => {
       //User.findByIdAndUpdate(giver, { $push: { donationsArray: donation._id }});
       res.status(201).json(donation);
     })
-    .catch(err => {
+    .catch((err) => {
       res
         .status(500)
         .json({ message: "Something went wrong during donation save" });
@@ -56,7 +57,7 @@ router.get("/donation/:id", (req, res, next) => {
   if (!req.user) {
     res.status(401).json({
       message:
-        "Vous devez être un utilisateur authentifié pour rechercher un don"
+        "Vous devez être un utilisateur authentifié pour rechercher un don",
     });
     return;
   }
@@ -69,17 +70,17 @@ router.get("/giver", (req, res, next) => {
   if (!req.user || !req.user.clientType === "restaurant") {
     res.status(401).json({
       message:
-        "Vous devez être un restaurant authentifié pour visioner vos dons"
+        "Vous devez être un restaurant authentifié pour visioner vos dons",
     });
     return;
   }
 
   Donation.find({ giver: req.user._id })
     .populate("taker giver")
-    .then(listDonations => {
+    .then((listDonations) => {
       res.status(201).json(listDonations);
     })
-    .catch(err => {
+    .catch((err) => {
       res
         .status(500)
         .json({ message: "Something went wrong during donations request" });
@@ -91,17 +92,17 @@ router.get("/taker", (req, res, next) => {
   if (!req.user || !req.user.clientType === "association") {
     res.status(401).json({
       message:
-        "Vous devez être une association authentifiée pour visioner vos dons"
+        "Vous devez être une association authentifiée pour visioner vos dons",
     });
     return;
   }
 
   Donation.find({ taker: req.user._id })
     .populate("giver taker")
-    .then(listDonations => {
+    .then((listDonations) => {
       res.status(201).json(listDonations);
     })
-    .catch(err => {
+    .catch((err) => {
       res
         .status(500)
         .json({ message: "Something went wrong during donations request" });
@@ -113,17 +114,17 @@ router.get("/available", (req, res, next) => {
   if (!req.user || !req.user.clientType === "association") {
     res.status(401).json({
       message:
-        "Vous devez être une association authentifiée pour visioner les dons disponibles"
+        "Vous devez être une association authentifiée pour visioner les dons disponibles",
     });
     return;
   }
 
   Donation.find({ status: "pending" })
     .populate("taker giver")
-    .then(listDonations => {
+    .then((listDonations) => {
       res.status(201).json(listDonations);
     })
-    .catch(err => {
+    .catch((err) => {
       res
         .status(500)
         .json({ message: "Something went wrong during donations request" });
@@ -135,7 +136,7 @@ router.put("/book/:id", (req, res, next) => {
   if (!req.user || !req.user.clientType === "association") {
     res.status(401).json({
       message:
-        "Vous devez être une association authentifiée pour réserver un don"
+        "Vous devez être une association authentifiée pour réserver un don",
     });
     return;
   }
@@ -143,7 +144,7 @@ router.put("/book/:id", (req, res, next) => {
   Donation.findByIdAndUpdate(
     id,
     { status: "booked", taker: req.user._id },
-    function(err, donation) {
+    function (err, donation) {
       if (err)
         return res
           .status(500)
@@ -158,12 +159,12 @@ router.put("/pick/:id", (req, res, next) => {
   if (!req.user || !req.user.clientType === "association") {
     res.status(401).json({
       message:
-        "Vous devez être une association authentifiée pour récupérer un don"
+        "Vous devez être une association authentifiée pour récupérer un don",
     });
     return;
   }
   const id = req.params.id;
-  Donation.findByIdAndUpdate(id, { status: "pickedUp" }, function(
+  Donation.findByIdAndUpdate(id, { status: "pickedUp" }, function (
     err,
     donation
   ) {
@@ -176,24 +177,18 @@ router.put("/pick/:id", (req, res, next) => {
 });
 
 //Suppression d'un don
-router.delete("/delete/:id", (req, res, next) => {
+router.put("/delete/:id", (req, res, next) => {
   if (!req.user || !req.user.clientType === "restaurant") {
     res.status(401).json({
-      message: "Vous devez être un restaurant authentifié pour supprimer un don"
+      message:
+        "Vous devez être un restaurant authentifié pour supprimer un don",
     });
     return;
   }
   const id = req.params.id;
-  Donation.findOneAndDelete({ _id: id }, function(err, donation) {
-    if (err) console.log(err);
-    if (!donation.giver === req.user._id) {
-      return res.status(401).json({
-        message:
-          "Vous devez être un restaurant authentifié pour supprimer un don"
-      });
-    }
-    console.log("Successful deletion");
-  });
+  Donation.deleteOne({ _id: id })
+    .then((response) => res.status(201).json(response))
+    .catch((err) => console.log(error));
 });
 
 module.exports = router;

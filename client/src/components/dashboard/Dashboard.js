@@ -16,6 +16,7 @@ class Dashboard extends React.Component {
   };
 
   fetchDonationsUser = () => {
+    console.log("fetched donations");
     if (this.props.user.clientType === "restaurant") {
       this.fetchDonationsRestaurant();
     } else {
@@ -42,6 +43,7 @@ class Dashboard extends React.Component {
       .then((data) => this.setState({ donationsAvailable: data.length }))
       .catch((err) => this.setState({ donationsAvailable: 0 }));
   };
+
   componentDidMount = () => {
     this.props.getCurrentPageName("Tableau de bord");
     this.fetchDonationsUser();
