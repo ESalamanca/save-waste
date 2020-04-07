@@ -33,9 +33,6 @@ form {
   }
 }
 
-h1 {
-  color: #648166;
-}
 
 .container {
   display: flex;
@@ -283,6 +280,14 @@ header.MuiAppBar-colorPrimary {
   margin: 1em 1.4em 7em 1.4em;
   border-radius: 1em;
   box-shadow: rgba(171, 195, 173, 0.67) 0px 0px 4px 3px;
+
+  .titreConnexion{
+    font-size: 1.4em;
+    color: #5e6488;
+    font-weight: 550;
+    padding-bottom: 10px;
+
+  }
 
   input {
     height: 30px;
@@ -587,6 +592,7 @@ a.btn {
   opacity: 0.8;
   font-weight: 600;
   margin-top: 15px;
+  
 }
 
 .Kpi3 {
@@ -597,6 +603,8 @@ a.btn {
   background-color: white;
   padding: 3px 40px;
   font-size: 14px;
+    box-shadow: rgba(218, 233, 219, 0.67) 0px 0px 4px 3px;
+
 
   .titreKpi3 {
     text-align: center;

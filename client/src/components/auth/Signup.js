@@ -54,7 +54,7 @@ export default class extends React.Component {
         {({ values, setFieldValue }) => {
           return (
             <Form className="form">
-              <h1>Créez votre compte</h1>
+              <div className="titreConnexion" >Créez votre compte 👋🏼</div>
               <label htmlFor="clientType">Vous êtes?</label>
 
               <Field name="clientType" as="select" className="my-select">

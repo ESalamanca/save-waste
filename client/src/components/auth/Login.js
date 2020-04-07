@@ -38,7 +38,7 @@ export default class extends React.Component {
     return (
       <form className="form" onSubmit={this.handleSubmit}>
         {this.state.error && <p className="error">{this.state.error}</p>}
-        <h1>Je me connecte</h1>
+        <div className="titreConnexion">Je me connecte 👌🏼</div>
 
         <label>Email</label>
         <input
