@@ -11,10 +11,12 @@ import donationServices from "../dons/donationServices";
 
 class Dashboard extends React.Component {
   state = {
-    donations: []
+    donations: [],
+    donationsAvailable: 0,
   };
 
   fetchDonationsUser = () => {
+    console.log("fetched donations");
     if (this.props.user.clientType === "restaurant") {
       this.fetchDonationsRestaurant();
     } else {
@@ -24,33 +26,41 @@ class Dashboard extends React.Component {
   fetchDonationsRestaurant = () => {
     donationServices
       .getDonationsGiver()
-      .then(data => this.setState({ donations: data }))
-      .catch(err => this.setState({ donations: {} }));
+      .then((data) => this.setState({ donations: data }))
+      .catch((err) => this.setState({ donations: {} }));
   };
 
   fetchDonationsAssociation = () => {
     donationServices
       .getDonationsAssociation()
-      .then(data => this.setState({ donations: data }))
-      .catch(err => this.setState({ donations: {} }));
+      .then((data) => this.setState({ donations: data }))
+      .catch((err) => this.setState({ donations: {} }));
+  };
+
+  fetchDonationsAvailable = () => {
+    donationServices
+      .getDonationsAvailable()
+      .then((data) => this.setState({ donationsAvailable: data.length }))
+      .catch((err) => this.setState({ donationsAvailable: 0 }));
   };
 
   componentDidMount = () => {
     this.props.getCurrentPageName("Tableau de bord");
     this.fetchDonationsUser();
+    this.fetchDonationsAvailable();
   };
 
   render() {
     //const isResto = this.props.user.clientType === "restaurant"
 
     const donsDone = this.state.donations.filter(
-      don => don.status === "pickedUp"
+      (don) => don.status === "pickedUp"
     );
     const donsBooked = this.state.donations.filter(
-      don => don.status === "booked"
+      (don) => don.status === "booked"
     );
     const donsAvailable = this.state.donations.filter(
-      don => don.status === "pending"
+      (don) => don.status === "pending"
     );
     const amount = 7 * donsDone.length;
     const nbmealsGiven = donsDone.length * 5;
@@ -59,16 +69,18 @@ class Dashboard extends React.Component {
     return (
       <div className="dashboard">
         <KpiTop
+          user={this.props.user}
           amount={amount}
           nbDonsOnGoing={
             this.props.user.clientType === "restaurant"
               ? donsBooked.length + donsAvailable.length
               : donsBooked.length
           }
+          donationsAvailable={this.state.donationsAvailable}
         />
 
         {this.props.user.clientType === "restaurant"
-          ? donsAvailable.map(don => (
+          ? donsAvailable.map((don) => (
               <CarddonAvailable
                 fetchDonationsUser={this.fetchDonationsUser}
                 key={don._id}
@@ -79,7 +91,7 @@ class Dashboard extends React.Component {
             ))
           : null}
 
-        {donsBooked.map(don => (
+        {donsBooked.map((don) => (
           <CarddonBooked
             key={don._id}
             fetchDonationsUser={this.fetchDonationsUser}
@@ -97,6 +109,7 @@ class Dashboard extends React.Component {
           donsDone={donsDone}
           nbmealsGiven={nbmealsGiven}
           emissionsCO2={emissionsCO2}
+          user={this.props.user}
         />
       </div>
     );

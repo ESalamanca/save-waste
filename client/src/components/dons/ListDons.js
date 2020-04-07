@@ -7,22 +7,23 @@ import MapContainer from "../map/MapContainer";
 class ListDons extends React.Component {
   state = {
     donationsAvailable: [],
-    cardOpen: null
+    cardOpen: null,
   };
 
   fetchDonationsAvailable = () => {
     donationServices
       .getDonationsAvailable()
-      .then(data => this.setState({ donationsAvailable: data }))
-      .catch(err => this.setState({ donationsAvailable: {} }));
+      .then((data) => this.setState({ donationsAvailable: data }))
+      .catch((err) => this.setState({ donationsAvailable: {} }));
   };
 
-  toggleCard = id => {
+  toggleCard = (id) => {
     console.log("called toggleCard", id);
     this.setState({ cardOpen: id });
   };
   componentDidMount = () => {
     this.fetchDonationsAvailable();
+    this.props.getCurrentPageName("Dons Disponibles");
   };
 
   render() {
@@ -59,7 +60,7 @@ class ListDons extends React.Component {
             </div>
 
             <div className="listDons">
-              {this.state.donationsAvailable.map(don => (
+              {this.state.donationsAvailable.map((don) => (
                 <CarddonAvailable
                   key={don._id}
                   isOpen={this.state.cardOpen === don._id}

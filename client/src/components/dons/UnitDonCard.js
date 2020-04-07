@@ -4,10 +4,10 @@ import moment from 'moment';
 class UnitDonCard extends React.Component {
   render() {
     const foodTypes = {
-      fruits: "/carrot.svg",
+      Fruits: "/apple.svg",
       Légumes: "/carrot.svg",
-      viandes: "/carrot.svg",
-      divers: "/carrot.svg"
+      Viandes: "/meet.svg",
+      Divers: "/millenium-falcon.svg"
     };
     const expiration = moment(this.props.expirationDate).format('DD/MM/YY');
     
@@ -18,7 +18,7 @@ class UnitDonCard extends React.Component {
         <div className="productType">
             <div>Type</div>
             <div>
-              <img src={foodTypes[this.props.productType]} alt="food type" />
+              <img src={foodTypes[this.props.productType]} alt="logo food" />
             </div>
           </div>
 

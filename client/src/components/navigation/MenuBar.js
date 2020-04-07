@@ -16,10 +16,10 @@ import AddIcon from "@material-ui/icons/Add";
 
 //import { withStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   appBar: {
     top: "auto",
-    bottom: 0
+    bottom: 0,
   },
   fabButton: {
     position: "absolute",
@@ -29,12 +29,12 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     margin: "0 auto",
     backgroundColor: "#F7DC00",
-    color: "#FFFFFF"
+    color: "#FFFFFF",
   },
   noPadding: {
     paddingLeft: 0,
-    paddingRight: 0
-  }
+    paddingRight: 0,
+  },
 }));
 
 function MenuBar(props) {
@@ -56,8 +56,9 @@ function MenuBar(props) {
   const handleLogout = () => {
     authService
       .logout()
-      .then(response => {
+      .then((response) => {
         props.updateUser({});
+        props.getCurrentPageName("SaveWaste");
         props.history.push("/");
       })
       .catch(console.error);
