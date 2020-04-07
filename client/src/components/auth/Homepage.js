@@ -10,10 +10,10 @@ export default props => {
       ) : (
         <div className="container">
           <div className="slogan">
-            "Faites de vos surplus des dons et économisez de l’argent avec
-            SaveWaste" 
+            Faites de vos surplus des dons et économisez de l’argent avec
+            SaveWaste
           </div>
-
+          <div><img src="legumes_top.jpg" alt="legumes"/></div>
           <div className="cta">
             <Link className="btn" to="/signup">
               Sign up
