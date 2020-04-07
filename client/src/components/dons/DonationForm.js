@@ -9,11 +9,9 @@ import donationServices from "./donationServices";
 import moment from "moment";
 
 class DonationForm extends React.Component {
-
   componentDidMount = () => {
     this.props.getCurrentPageName("Nouveau don");
   };
-
 
   render() {
     console.log("props", this.props);
@@ -26,15 +24,14 @@ class DonationForm extends React.Component {
               productType: "Légumes",
               quantity: {
                 value: 0,
-                qtyType: "kg"
+                qtyType: "kg",
               },
-              expirationDate: moment(new Date(Date.now())).format ('DD/MM/YY'),
-              
-            }
+              expirationDate: moment(new Date(Date.now())).format("DD/MM/YY"),
+            },
           ],
-          pickDate: moment(new Date(Date.now())).format ('DD/MM/YY'),
+          pickDate: moment(new Date(Date.now())).format("DD/MM/YY"),
           location: this.props.user.address || "",
-          GeoLoc: this.props.user.GeoLoc || {}
+          GeoLoc: this.props.user.GeoLoc || {},
         }}
         // validationSchema={Yup.object({
         //   productName: Yup.string()
@@ -56,10 +53,10 @@ class DonationForm extends React.Component {
           console.log("values", values);
           donationServices
             .createDonation(donationBox, pickDate, location, GeoLoc)
-            .then(response => {
+            .then((response) => {
               this.props.history.push(`/dashboard`);
             })
-            .catch(err => console.log(err));
+            .catch((err) => console.log(err));
         }}
       >
         {({ values, setFieldValue }) => {
@@ -71,11 +68,10 @@ class DonationForm extends React.Component {
                 productType: "Légumes",
                 quantity: {
                   value: 0,
-                  qtyType: "kg"
+                  qtyType: "kg",
                 },
                 expirationDate: Date.now(),
-               
-              }
+              },
             ]);
 
           const handleAddress = (address, GeoLoc) => {
@@ -83,7 +79,7 @@ class DonationForm extends React.Component {
             setFieldValue("GeoLoc", GeoLoc);
           };
 
-          const deleteUnitDon = index => {
+          const deleteUnitDon = (index) => {
             const newDonationBox = values.donationBox;
             newDonationBox.splice(index, 1);
             setFieldValue("donationBox", newDonationBox);
@@ -106,13 +102,10 @@ class DonationForm extends React.Component {
                     </div>
                   );
                 })}
-                 <div className="date">
+                <div className="localisation">
                   <label>A récuperer avant le:</label>
-                    <Field
-                      type="date"
-                      name= 'pickDate'
-                    ></Field>
-                  </div>
+                  <Field type="date" name="pickDate"></Field>
+                </div>
                 <div className="localisation">
                   <label htmlFor="location">Localisation du don</label>
                   <Address

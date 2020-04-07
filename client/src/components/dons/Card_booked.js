@@ -70,7 +70,7 @@ class CarddonBooked extends React.Component {
                   />
                 )
             )}
-           <div className="dateRecup"><div><img src="/calendar-month.svg"alt="calendar"/></div><div>A récupérer avant le : {dateRecup}</div></div>
+           <div className="dateRecup"><div><img src="/calendar-month.svg"alt="calendar"/></div><div className="wordingRecup">A récupérer avant le : {dateRecup}</div></div>
             <div className="placeRecup"><div><img src="/check-in.svg"alt="check-in "/></div><div>{this.props.location}</div></div>
 
             {this.props.user.clientType === "association" ? (
