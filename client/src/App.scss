@@ -140,6 +140,19 @@ h1 {
   p small + .btn {
     margin-top: 1em;
   }
+  .btn-signup{
+    width:230px;
+    display: inline-block;
+    background: #6fcf97;
+    border-radius: 5px;
+    padding: 0.85em 4em;
+    border:inherit;
+    font-weight: bold;
+    font-size: 80%;
+    text-align: center;
+    cursor: pointer;
+    margin: 2em 2em 2em 2em;
+  }
 }
 
 //    _   _     __      ______          _____
@@ -402,7 +415,7 @@ header.MuiAppBar-colorPrimary {
       cursor: pointer;
     }
 
-    .unitDon {
+    .unitDon, .date {
       width: 100%;
       font-size: 1em;
       padding: 0.3em 0.6em;
@@ -445,12 +458,11 @@ header.MuiAppBar-colorPrimary {
         }
 
         .date {
-          width: 60%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
+          width: 100%;
+          font-size: 1em;
+          padding: 0.3em 0.6em;
+          margin-bottom: 1em;
+          border-radius: 1em;
 
           input {
             width: 100%;
