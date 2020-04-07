@@ -60,7 +60,7 @@ export default class extends React.Component {
           Connexion
         </button>
         <p>
-          Vous n'avez pas de compte? <Link to="/signup">Créer un compte</Link>
+          Vous n'avez pas de compte? <Link to="/signup" >Créer un compte</Link>
         </p>
       </form>
     );

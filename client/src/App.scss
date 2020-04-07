@@ -63,12 +63,15 @@ form {
     background-repeat: no-repeat;
     padding: 3em;
     border-radius: 1em;
-    margin-top: -3em;
+
 
     .btn {
       margin-top: 2em;
       font-weight: bold;
-      font-size: 0.8em;
+      font-size: 1em;
+      width: 15em;
+      padding:1.1em;
+      margin: 12px;
     }
   }
 }
@@ -147,6 +150,7 @@ form {
     font-weight: bold;
     font-size: 80%;
     text-align: center;
+    color:5E6488;
     cursor: pointer;
     margin: 2em 2em 2em 2em;
   }
@@ -158,7 +162,11 @@ form {
 
 .form.login {
   margin-top: 7em;
+
+  
 }
+
+
 //    _   _     __      ______          _____
 //   | \ | |   /\ \    / /  _ \   /\   |  __ \
 //   |  \| |  /  \ \  / /| |_) | /  \  | |__) |
@@ -221,7 +229,6 @@ header.MuiAppBar-colorPrimary {
   background-color: white;
   margin: 1em 1.4em 7em 1.4em;
   border-radius: 1em;
-  box-shadow: rgba(218, 233, 219, 0.67) 0px 0px 4px 3px;
   .avatar {
     margin-top: 1em;
     margin-bottom: 1em;
@@ -303,7 +310,6 @@ header.MuiAppBar-colorPrimary {
   background-color: white;
   margin: 1em 1.4em 7em 1.4em;
   border-radius: 1em;
-  box-shadow: rgba(171, 195, 173, 0.67) 0px 0px 4px 3px;
 
   .titreConnexion{
     font-size: 1.4em;
@@ -368,6 +374,7 @@ header.MuiAppBar-colorPrimary {
     width: 150px;
     padding: 1em;
     color: #5e648f;
+    width: 80%;
   }
 
   p {
@@ -395,7 +402,6 @@ header.MuiAppBar-colorPrimary {
     background-color: white;
     margin: 0 1.4em;
     border-radius: 1em;
-    box-shadow: rgba(171, 195, 173, 0.67) 0px 0px 4px 3px;
 
     select {
       -moz-appearance: none;
@@ -415,10 +421,10 @@ header.MuiAppBar-colorPrimary {
 
     h2 {
       font-size: 1.2em;
-      color: rgb(129, 136, 129);
+      color: #5e6488;
+      text-align: center;
     }
     .plus {
-      box-shadow: rgba(171, 195, 173, 0.67) 0px 0px 4px 3px;
       width: 40px;
       height: 40px;
       border-radius: 100%;
@@ -432,7 +438,6 @@ header.MuiAppBar-colorPrimary {
     .unitDon, .date {
       width: 100%;
       font-size: 1em;
-      padding: 0.3em 0.6em;
       margin-bottom: 1em;
       border-radius: 1em;
 
@@ -442,7 +447,7 @@ header.MuiAppBar-colorPrimary {
         align-items: center;
         h2 {
           font-size: 1.3em;
-          color: black;
+          color: #5e6488;
         }
       }
 
@@ -628,7 +633,7 @@ a.btn {
   background-color: white;
   padding: 3px 40px;
   font-size: 14px;
-    box-shadow: rgba(218, 233, 219, 0.67) 0px 0px 4px 3px;
+  box-shadow: #F2F2F2 0px 0px 4px 3px;
 
 
   .titreKpi3 {
@@ -659,6 +664,7 @@ a.btn {
   font-size: 14px;
   font-family: "Open Sans";
   display: flex;
+  
 
   img {
     margin-left: 0px;
@@ -679,6 +685,10 @@ a.btn {
     width: 100%;
     border-radius: 5px;
     margin-top: 5px;
+
+    .recupLe{
+      padding-left: 10px;
+    }
 
     .wordingRecup {
       padding-left: 10px;

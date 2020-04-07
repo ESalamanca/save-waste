@@ -74,13 +74,13 @@ class CarddonPicked extends React.Component {
                 <div>
                   <img src="/calendar-month.svg" alt="calendar" />
                 </div>
-                <div>Récupéré le : {dateRecup}</div>
+                <div className="recupLe">Récupéré le : {dateRecup}</div>
               </div>
               <div className="placeRecup">
                 <div>
                   <img src="/check-in.svg" alt="check-in " />
                 </div>
-                <div>{this.props.location}</div>
+                <div className="recupLe">{this.props.location}</div>
               </div>
 
               <button className="btn-download">
