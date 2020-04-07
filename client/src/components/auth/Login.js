@@ -36,7 +36,7 @@ export default class extends React.Component {
 
   render() {
     return (
-      <form className="form" onSubmit={this.handleSubmit}>
+      <form className="form login" onSubmit={this.handleSubmit}>
         {this.state.error && <p className="error">{this.state.error}</p>}
         <h1>Je me connecte</h1>
 

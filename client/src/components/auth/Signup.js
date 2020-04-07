@@ -53,7 +53,7 @@ export default class extends React.Component {
       >
         {({ values, setFieldValue }) => {
           return (
-            <Form className="form">
+            <Form className="form signup">
               <h1>Créez votre compte</h1>
               <label htmlFor="clientType">Vous êtes?</label>
 

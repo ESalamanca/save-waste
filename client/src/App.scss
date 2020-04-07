@@ -55,10 +55,10 @@ h1 {
     font-family: "Open Sans";
     margin-top: 2em;
   }
-  img{
-    margin-top:2em; 
-    width:100vw; 
-    border-radius:5px; 
+  img {
+    margin-top: 2em;
+    width: 100vw;
+    border-radius: 5px;
   }
   .cta {
     display: flex;
@@ -142,6 +142,13 @@ h1 {
   }
 }
 
+.form.signup {
+  margin-bottom: 1em;
+}
+
+.form.login {
+  margin-top: 7em;
+}
 //    _   _     __      ______          _____
 //   | \ | |   /\ \    / /  _ \   /\   |  __ \
 //   |  \| |  /  \ \  / /| |_) | /  \  | |__) |
