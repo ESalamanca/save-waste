@@ -58,7 +58,7 @@ class CarddonAvailable extends React.Component {
               <div className="toggleButton">
                 <img
                   onClick={this.toggleCard}
-                  src="/icon_fleche_open.svg"
+                  src="/cardOpen.svg"
                   alt="Logo chevron open"
                   style={{ cursor: "pointer" }}
                 />
