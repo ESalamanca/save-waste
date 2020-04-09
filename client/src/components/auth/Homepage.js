@@ -22,10 +22,6 @@ export default (props) => {
               Log in
             </Link>
           </div>
-          {/*<div className="deco">
-          <img src="resto.jpg" alt="resto"/>
-          <img src="assos.jpg" alt="asso"/>
-          </div>*/}
         </div>
       )}
     </>

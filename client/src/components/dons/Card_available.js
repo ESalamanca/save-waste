@@ -17,13 +17,6 @@ class CarddonAvailable extends React.Component {
       .deleteDonation(this.props._id)
       .then((response) => this.props.fetchDonationsUser());
   };
-  // imgProductType = productType => {
-  //   let img_product = "altIMG";
-  //   if (productType === "légume") {
-  //     img_product = "carrot.svg";
-  //   }
-  //   return img_product;
-  // };
 
   bookDon = () => {
     donationServices.bookDonation(this.props._id).then((donation) => {
@@ -39,21 +32,6 @@ class CarddonAvailable extends React.Component {
       pickedUp: "Panier Récupéré",
     };
     const dateRecuperation = moment(this.props.pickDate).format("DD/MM/YY");
-    //Le bouton pour les associations
-    /*const cardButton = {
-      pending: (
-        <button className="btn" onClick={this.bookDon}>
-          Réserver
-        </button>
-      ),
-      booked: (
-        <button className="btn" onClick={this.pickupDon}>
-          Récupéré
-        </button>
-      ),
-      pickedUp: ""
-      pending: "Panier Disponible"
-    };*/
 
     return (
       <div className="card_dons" id={this.props._id}>
@@ -81,7 +59,8 @@ class CarddonAvailable extends React.Component {
                 <img
                   onClick={this.toggleCard}
                   src="/icon_fleche_open.svg"
-                  alt="Logo chevron open "
+                  alt="Logo chevron open"
+                  style={{ cursor: "pointer" }}
                 />
                 {this.state.isOpen}
               </div>

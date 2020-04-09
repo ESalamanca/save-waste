@@ -6,8 +6,6 @@ class Kpi extends React.Component {
   render() {
     return (
       <div>
-       
-       
 
         <CarddonBooked />
         <CarddonAvailable />

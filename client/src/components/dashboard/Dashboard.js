@@ -7,7 +7,6 @@ import CarddonAvailable from "../dons/Card_available.js";
 import CarddonPicked from "../dons/Card_picked.js";
 import donationServices from "../dons/donationServices";
 
-//import { Link } from "react-router-dom";
 
 class Dashboard extends React.Component {
   state = {
@@ -51,7 +50,6 @@ class Dashboard extends React.Component {
   };
 
   render() {
-    //const isResto = this.props.user.clientType === "restaurant"
 
     const donsDone = this.state.donations.filter(
       (don) => don.status === "pickedUp"
@@ -100,10 +98,6 @@ class Dashboard extends React.Component {
             {...don}
           />
         ))}
-
-        {/* {donsDone.map(don => (
-          <CarddonPicked key={don._id} user={this.props.user} {...don} />
-        ))} */}
 
         <KpiBottom
           donsDone={donsDone}

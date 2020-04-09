@@ -75,7 +75,6 @@ export class MapContainer extends Component {
               <h1
                 onClick={() => {
                   console.log("clicked");
-                  // this.props.toggleCard(this.state.selectedPlace.placeId);
                 }}
               >
                 {this.state.selectedPlace.name}

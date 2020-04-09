@@ -1,4 +1,4 @@
-// components/auth/auth-service.js
+
 
 import axios from "axios";
 
@@ -30,14 +30,14 @@ export default {
 
   getDonationsGiver() {
     return this.service.get("/donations/giver").then((response) => {
-      // console.log("donations", response.data);
+    
       return response.data;
     });
   },
 
   getDonationsAssociation() {
     return this.service.get("/donations/taker").then((response) => {
-      // console.log("donations", response.data);
+   
       return response.data;
     });
   },
