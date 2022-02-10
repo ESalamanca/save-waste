@@ -9,7 +9,7 @@
     "dotenv": "^8.2.0",
     "formik": "^2.1.4",
     "google-maps-react": "^2.0.2",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-google-maps": "^9.4.5",
